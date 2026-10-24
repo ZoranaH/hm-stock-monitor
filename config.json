@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "interval_seconds": 900,
+    "metadata_refresh_hours": 6,
+    "notify_on_first_check": true,
+    "heartbeat_hours": 24
+  },
+  "countries": [
+    { "name": "Romania", "locale": "ro_ro" },
+    { "name": "Germany", "locale": "de_de" },
+    { "name": "Serbia", "locale": "sr_rs" }
+  ],
+  "items": [
+    {
+      "name": "Slim leather belt — black",
+      "article": "1343845001",
+      "sizes": ["*"],
+      "countries": ["ro_ro", "de_de"]
+    },
+    {
+      "name": "Layered-look shorts with lace — black",
+      "article": "1343794001",
+      "sizes": ["34", "36", "38"]
+    },
+    {
+      "name": "Hourglass wool-blend coat — black",
+      "article": "1349627001",
+      "sizes": ["XS"]
+    }
+  ]
+}

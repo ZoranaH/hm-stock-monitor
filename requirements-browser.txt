@@ -1,0 +1,2 @@
+# Optional. Direct HTTP mode still uses only the Python standard library.
+playwright>=1.60,<2
