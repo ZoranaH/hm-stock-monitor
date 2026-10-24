@@ -1,3 +1,208 @@
 {
-  "watches": {}
+  "watches": {
+    "ro_ro:1343845001": {
+      "metadata": {
+        "sizes": {
+          "XS": "1343845001002",
+          "S": "1343845001003",
+          "M": "1343845001004",
+          "L": "1343845001005"
+        },
+        "name": "Curea îngustă din piele",
+        "colour": "Negru",
+        "coming_soon": false,
+        "fetched_at": 1792840569.4068615
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840562.4076042,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "ro_ro:1343794001": {
+      "metadata": {
+        "sizes": {
+          "32": "1343794001001",
+          "34": "1343794001002",
+          "36": "1343794001003",
+          "38": "1343794001004",
+          "40": "1343794001005",
+          "42": "1343794001006",
+          "44": "1343794001007",
+          "46": "1343794001008",
+          "48": "1343794001009",
+          "50": "1343794001010",
+          "52": "1343794001011"
+        },
+        "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
+        "colour": "Negru",
+        "coming_soon": false,
+        "fetched_at": 1792840574.0472784
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840569.4530115,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "ro_ro:1349627001": {
+      "metadata": {
+        "sizes": {
+          "XS": "1349627001002",
+          "S": "1349627001003",
+          "M": "1349627001004",
+          "L": "1349627001005",
+          "XL": "1349627001006",
+          "XXL": "1349627001007"
+        },
+        "name": "Palton stil clepsidră din amestec de lână",
+        "colour": "Negru",
+        "coming_soon": false,
+        "fetched_at": 1792840577.1503913
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840574.1797292,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "de_de:1343845001": {
+      "metadata": {
+        "sizes": {
+          "XS": "1343845001002",
+          "S": "1343845001003",
+          "M": "1343845001004",
+          "L": "1343845001005"
+        },
+        "name": "Schmaler Ledergürtel",
+        "colour": "Schwarz",
+        "coming_soon": false,
+        "fetched_at": 1792840580.8154073
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840577.1545172,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "de_de:1343794001": {
+      "metadata": {
+        "sizes": {
+          "32": "1343794001001",
+          "34": "1343794001002",
+          "36": "1343794001003",
+          "38": "1343794001004",
+          "40": "1343794001005",
+          "42": "1343794001006",
+          "44": "1343794001007",
+          "46": "1343794001008",
+          "48": "1343794001009",
+          "50": "1343794001010",
+          "52": "1343794001011"
+        },
+        "name": "Shorts mit Spitzenbesatz im Lagenlook",
+        "colour": "Schwarz",
+        "coming_soon": false,
+        "fetched_at": 1792840583.8426049
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840580.8637226,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "de_de:1349627001": {
+      "metadata": {
+        "sizes": {
+          "XS": "1349627001002",
+          "S": "1349627001003",
+          "M": "1349627001004",
+          "L": "1349627001005",
+          "XL": "1349627001006",
+          "XXL": "1349627001007"
+        },
+        "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
+        "colour": "Schwarz",
+        "coming_soon": false,
+        "fetched_at": 1792840586.8583877
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840583.8472445,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "sr_rs:1343794001": {
+      "metadata": {
+        "sizes": {
+          "32": "1343794001001",
+          "34": "1343794001002",
+          "36": "1343794001003",
+          "38": "1343794001004",
+          "40": "1343794001005",
+          "42": "1343794001006",
+          "44": "1343794001007",
+          "46": "1343794001008",
+          "48": "1343794001009",
+          "50": "1343794001010",
+          "52": "1343794001011"
+        },
+        "name": "Slojeviti šorts s čipkanim bordurama",
+        "colour": "Crna",
+        "coming_soon": false,
+        "fetched_at": 1792840589.6984239
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840586.8638983,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    },
+    "sr_rs:1349627001": {
+      "metadata": {
+        "sizes": {
+          "XS": "1349627001002",
+          "S": "1349627001003",
+          "M": "1349627001004",
+          "L": "1349627001005",
+          "XL": "1349627001006",
+          "XXL": "1349627001007"
+        },
+        "name": "Kaput od mešavine vune s efektom peščanog sata",
+        "colour": "Crna",
+        "coming_soon": false,
+        "fetched_at": 1792840592.6928313
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1792840589.703118,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null
+    }
+  },
+  "heartbeat_at": 1792840593.2308643
 }
