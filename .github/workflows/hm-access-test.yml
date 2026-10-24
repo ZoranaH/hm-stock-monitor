@@ -3,8 +3,6 @@ name: H&M stock monitor
 # Run every 5 min, or start one round manually from the Actions tab.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "3,8,13,18,23,28,33,38,43,48,53,58 * * * *"
 
 # Needed to save state.json on this repository's monitor-state branch.
 permissions:
