@@ -1,0 +1,87 @@
+name: H&M access test
+
+# Manual test only: this workflow has no automatic schedule.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hm-access-test
+  cancel-in-progress: false
+
+jobs:
+  access-test:
+    name: Check H&M from GitHub
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    env:
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Download repository files
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements-browser.txt
+
+      - name: Check H&M with connected Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          google-chrome --version
+
+          # Use the runner's virtual display for an ordinary Chrome process.
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x900x24 -nolisten tcp" bash -euo pipefail <<'BASH'
+          google-chrome \
+            --remote-debugging-address=127.0.0.1 \
+            --remote-debugging-port=9222 \
+            --user-data-dir="$RUNNER_TEMP/hm-chrome-profile" \
+            --no-first-run \
+            --no-default-browser-check \
+            --window-size=1280,900 \
+            about:blank > "$RUNNER_TEMP/hm-chrome.log" 2>&1 &
+
+          chrome_pid=$!
+          trap 'kill "$chrome_pid" 2>/dev/null || true' EXIT
+
+          # Wait for local Chrome readiness, without sending requests to H&M.
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from pathlib import Path
+          from urllib.error import URLError
+          from urllib.request import urlopen
+
+          deadline = time.monotonic() + 30
+          while time.monotonic() < deadline:
+              try:
+                  with urlopen("http://127.0.0.1:9222/json/version", timeout=1) as response:
+                      details = json.load(response)
+                  if details.get("webSocketDebuggerUrl"):
+                      print("Chrome is ready.", flush=True)
+                      break
+              except (OSError, URLError, ValueError):
+                  pass
+              time.sleep(1)
+          else:
+              log = Path(os.environ["RUNNER_TEMP"]) / "hm-chrome.log"
+              if log.exists():
+                  print(log.read_text(errors="replace")[-6000:])
+              raise SystemExit("Chrome did not become ready within 30 seconds.")
+          PY
+
+          # One complete round, with no Telegram messages or saved alert state.
+          # The monitor stops the batch if H&M returns HTTP 403 or 429.
+          python monitor.py --connect-chrome --dry-run
+          BASH
