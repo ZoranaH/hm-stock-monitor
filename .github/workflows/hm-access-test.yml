@@ -1,19 +1,23 @@
-name: H&M access test
+name: H&M stock monitor
 
-# Manual test only: this workflow has no automatic schedule.
+# Run once each hour, or start one round manually from the Actions tab.
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
 
+# Needed to save state.json on this repository's monitor-state branch.
 permissions:
-  contents: read
+  contents: write
 
+# Use the original group's name so old tests and live runs cannot overlap.
 concurrency:
   group: hm-access-test
   cancel-in-progress: false
 
 jobs:
-  access-test:
-    name: Check H&M from GitHub
+  monitor:
+    name: Check H&M and send alerts
     runs-on: ubuntu-24.04
     timeout-minutes: 10
 
@@ -24,18 +28,99 @@ jobs:
       - name: Download repository files
         uses: actions/checkout@v7
         with:
-          persist-credentials: false
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
           python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-browser.txt
+
+      - name: Check Telegram settings
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+
+          required = {
+              "TELEGRAM_BOT_TOKEN": r"\d+:[A-Za-z0-9_-]+",
+              "TELEGRAM_CHAT_ID": r"-?\d+",
+          }
+          for name, pattern in required.items():
+              if not re.fullmatch(pattern, os.environ.get(name, "").strip()):
+                  raise SystemExit(
+                      f"Add a valid {name} repository secret. Paste only its value, without quotes."
+                  )
+          print("Telegram settings are present; their values are not displayed.")
+          PY
+
+      - name: Restore notification history
+        id: state
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/hm-state"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Distinguish an absent branch from a network or permissions failure.
+          if git ls-remote --exit-code --heads origin refs/heads/monitor-state > "$RUNNER_TEMP/hm-state-ref.txt"; then
+            git fetch --no-tags --depth=1 origin refs/heads/monitor-state
+            git worktree add --detach "$state_dir" FETCH_HEAD
+            echo "Restored notification history from monitor-state."
+          else
+            lookup_status=$?
+            if [ "$lookup_status" -ne 2 ]; then
+              echo "Could not read the state branch. Stopping rather than resetting alert history."
+              exit "$lookup_status"
+            fi
+
+            # First run: create an independent branch containing only state.json.
+            git worktree add --detach "$state_dir" HEAD
+            git -C "$state_dir" switch --orphan hm-state-initial
+            python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path(os.environ["RUNNER_TEMP"]) / "hm-state" / "state.json"
+          path.write_text(json.dumps({"watches": {}}, indent=2) + "\n", encoding="utf-8")
+          PY
+            git -C "$state_dir" add -- state.json
+            git -C "$state_dir" commit -m "Initialize H&M notification history"
+            state_commit=$(git -C "$state_dir" rev-parse HEAD)
+
+            # Push from the original checkout, where GitHub authentication is set up.
+            git push origin "$state_commit:refs/heads/monitor-state"
+            echo "Created monitor-state for future runs."
+          fi
+
+          # A damaged existing file must not silently become a fresh baseline.
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path(os.environ["RUNNER_TEMP"]) / "hm-state" / "state.json"
+          state = json.loads(path.read_text(encoding="utf-8"))
+          if not isinstance(state, dict) or not isinstance(state.get("watches"), dict):
+              raise SystemExit("Saved state is invalid. No H&M checks or alerts were started.")
+          print("Saved state is ready.")
+          PY
+          echo "ready=true" >> "$GITHUB_OUTPUT"
 
       - name: Install Python dependencies
         run: python -m pip install -r requirements-browser.txt
 
       - name: Check H&M with connected Chrome
         shell: bash
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set -euo pipefail
           google-chrome --version
@@ -81,7 +166,48 @@ jobs:
               raise SystemExit("Chrome did not become ready within 30 seconds.")
           PY
 
-          # One complete round, with no Telegram messages or saved alert state.
+          # Check once, then stop. GitHub schedules the next round.
           # The monitor stops the batch if H&M returns HTTP 403 or 429.
-          python monitor.py --connect-chrome --dry-run
+          python monitor.py --connect-chrome --once --state "$RUNNER_TEMP/hm-state/state.json"
           BASH
+
+      - name: Save notification history
+        if: ${{ always() && steps.state.outputs.ready == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/hm-state"
+
+          # Validate before saving. Never commit credentials, profiles or lock files.
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path(os.environ["RUNNER_TEMP"]) / "hm-state" / "state.json"
+          state = json.loads(path.read_text(encoding="utf-8"))
+          if not isinstance(state, dict) or not isinstance(state.get("watches"), dict):
+              raise SystemExit("Refusing to save an invalid state file.")
+          PY
+          git -C "$state_dir" add -- state.json
+          if git -C "$state_dir" diff --cached --quiet; then
+            echo "Notification history is unchanged."
+            exit 0
+          fi
+
+          git -C "$state_dir" commit -m "Update H&M notification history"
+          state_commit=$(git -C "$state_dir" rev-parse HEAD)
+
+          # Keep retry pauses and sent-alert history even when a stock check failed.
+          # A push rejection is reported as a failure; history is never force-pushed.
+          for attempt in 1 2 3; do
+            if git push origin "$state_commit:refs/heads/monitor-state"; then
+              echo "Notification history saved for the next run."
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep 2
+            fi
+          done
+          echo "::error::Could not save notification history. Review this failed run; alerts may repeat until saving is fixed."
+          exit 1
