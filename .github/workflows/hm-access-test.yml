@@ -4,7 +4,7 @@ name: H&M stock monitor
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "2-59/5 * * * *"
 
 # Needed to save state.json on this repository's monitor-state branch.
 permissions:
