@@ -1,6 +1,6 @@
 {
   "settings": {
-    "interval_seconds": 900,
+    "interval_seconds": 300,
     "metadata_refresh_hours": 6,
     "notify_on_first_check": true,
     "heartbeat_hours": 24
