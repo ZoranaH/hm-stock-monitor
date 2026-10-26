@@ -11,12 +11,12 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793022364.6056256
+        "fetched_at": 1793022656.821697
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022356.460343,
+      "last_success": 1793022649.7998748,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -40,12 +40,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793022368.0945544
+        "fetched_at": 1793022659.4127162
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022364.6285994,
+      "last_success": 1793022656.8547926,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -64,12 +64,12 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793022370.9670434
+        "fetched_at": 1793022663.060208
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022368.099385,
+      "last_success": 1793022659.417296,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -86,12 +86,12 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793022375.059947
+        "fetched_at": 1793022666.0830374
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022370.9716096,
+      "last_success": 1793022663.064375,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -115,12 +115,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793022377.781059
+        "fetched_at": 1793022668.685911
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022375.0679955,
+      "last_success": 1793022666.0932438,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -139,12 +139,12 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793022380.7057145
+        "fetched_at": 1793022671.833617
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022377.78508,
+      "last_success": 1793022668.6908195,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -168,12 +168,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793022383.204712
+        "fetched_at": 1793022674.8105652
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022380.7101912,
+      "last_success": 1793022671.8396728,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -192,12 +192,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793022385.738529
+        "fetched_at": 1793022677.9428625
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793022383.2092643,
+      "last_success": 1793022674.8164074,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
