@@ -1,6 +1,7 @@
 name: H&M stock monitor
 
-# Run every 5 min, or start one round manually from the Actions tab.
+# An external scheduler dispatches this workflow every 5 minutes.
+# A round can also be started manually from the Actions tab.
 on:
   workflow_dispatch:
 
@@ -164,8 +165,8 @@ jobs:
               raise SystemExit("Chrome did not become ready within 30 seconds.")
           PY
 
-          # Check once, then stop. GitHub schedules the next round.
-          # The monitor stops the batch if H&M returns HTTP 403 or 429.
+          # Run one cycle with bounded retries, then stop.
+          # A 403 affects only that item; a 429 respects the server's rate limit.
           python monitor.py --connect-chrome --once --state "$RUNNER_TEMP/hm-state/state.json"
           BASH
 

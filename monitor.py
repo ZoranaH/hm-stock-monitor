@@ -31,10 +31,17 @@ MAX_RESPONSE_BYTES = 8_000_000
 class MonitorError(Exception):
     """An unknown result, never an out-of-stock result."""
 
-    def __init__(self, message: str, retry_after: float = 0, blocked: bool = False):
+    def __init__(
+        self,
+        message: str,
+        retry_after: float = 0,
+        blocked: bool = False,
+        rate_limited: bool = False,
+    ):
         super().__init__(message)
         self.retry_after = retry_after
         self.blocked = blocked
+        self.rate_limited = rate_limited
 
 
 class NextDataParser(HTMLParser):
@@ -219,6 +226,7 @@ class Client:
                 f"{target}: HTTP {error.code}; request refused or failed.",
                 retry_delay(error.headers.get("Retry-After")),
                 blocked=is_hm and error.code in {403, 429},
+                rate_limited=is_hm and error.code == 429,
             ) from None
         except (URLError, TimeoutError, OSError, UnicodeError):
             raise MonitorError(f"{target}: network, TLS or response decoding error.") from None
@@ -329,6 +337,7 @@ class BrowserClient:
                     f"Browser product page: HTTP {response.status}. H&M refused this browser request.",
                     retry_delay(response.headers.get("retry-after")),
                     blocked=response.status in {403, 429},
+                    rate_limited=response.status == 429,
                 )
             expected = urlsplit(watch.url)
             actual = urlsplit(self.page.url)
@@ -347,6 +356,7 @@ class BrowserClient:
                         f"Browser stock request: HTTP {stock_response.status}; stock is unknown.",
                         retry_delay(stock_response.headers.get("retry-after")),
                         blocked=stock_response.status in {403, 429},
+                        rate_limited=stock_response.status == 429,
                     )
                 try:
                     stock = parse_stock(stock_response.json(), watch)
@@ -531,67 +541,175 @@ def check_watch(client, notifier, watch, record, settings, dry_run):
     })
 
 
-def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
-    if not dry_run and time.time() < state.get("pause_until", 0):
-        LOG.warning("H&M checks are paused after an access refusal; stock is unknown.")
-        return len(watches)
-    errors = 0
-    for index, watch in enumerate(watches):
-        if STOP.is_set():
-            break
-        record = state.setdefault("watches", {}).setdefault(watch.key, {})
-        if time.time() < record.get("retry_at", 0):
-            errors += 1
-            continue
+def migrate_retry_state(state):
+    """Retire the old blanket 403 pause without discarding stock or alert history."""
+    legacy_pause = state.pop("pause_until", 0)
+    if not legacy_pause:
+        return
+
+    # An old 429 may represent a server-wide limit. Keep that wait, while a
+    # legacy 403 now keeps only the affected item's existing retry deadline.
+    had_rate_limit = any(
+        "HTTP 429" in (record.get("last_error") or "")
+        for record in state.get("watches", {}).values()
+    )
+    if had_rate_limit:
+        state["hm_retry_at"] = max(state.get("hm_retry_at", 0), legacy_pause)
+    LOG.info("Migrated old retry state; saved stock and notification history were preserved.")
+
+
+def cool_down_watch(notifier, watch, record, settings, error, attempts):
+    """Apply an item-only cooldown after its attempts have been exhausted."""
+    failures = record.get("failures", 0) + 1
+    delay = max(settings["failure_cooldown_seconds"], error.retry_after)
+    record.update({
+        "failures": failures,
+        "retry_at": time.time() + delay,
+        "last_error": str(error),
+        "last_attempt_count": attempts,
+    })
+    LOG.warning(
+        "%s | %s | %s attempts failed; this item will retry in at least %.0f seconds.",
+        watch.country, watch.label, attempts, delay,
+    )
+    if failures >= 3 and time.time() - record.get("error_alert_at", 0) >= 86400:
         try:
-            check_watch(client, notifier, watch, record, settings, dry_run)
-        except MonitorError as error:
-            errors += 1
-            LOG.warning("%s | %s | UNKNOWN: %s", watch.country, watch.label, error)
-            if not dry_run:
-                failures = record.get("failures", 0) + 1
-                delay = min(3600, settings["interval_seconds"] * 2 ** min(failures - 1, 6))
-                record.update({
-                    "failures": failures,
-                    "retry_at": time.time() + max(delay, error.retry_after),
-                    "last_error": str(error),
-                })
-                if failures >= 3 and time.time() - record.get("error_alert_at", 0) >= 86400:
-                    try:
-                        notifier.send(
-                            f"H&M monitor needs attention — {watch.country}\n"
-                            f"{watch.label}\n{error}\n"
-                            "Stock is unknown. Checks will retry with backoff.\n" + watch.url
-                        )
-                        record["error_alert_at"] = time.time()
-                    except MonitorError:
-                        LOG.error("Could not send the monitor error notification.")
-            if error.blocked:
-                # Stop the whole batch, rather than sending more requests to a
-                # host that has just refused access or asked us to slow down.
-                errors += len(watches) - index - 1
-                LOG.warning("Stopping this batch after the access refusal. Remaining items were not checked.")
-                if not dry_run:
-                    state["pause_until"] = time.time() + max(3600, error.retry_after)
-                    if time.time() - state.get("access_alert_at", 0) >= 86400:
-                        try:
-                            notifier.send(
-                                "H&M monitor: access refused.\n" + str(error) +
-                                "\nAll checks are paused for at least one hour. Stock is unknown."
-                            )
-                            state["access_alert_at"] = time.time()
-                        except MonitorError:
-                            LOG.error("Could not send the access-refusal alert.")
-                    save_state(state_path, state)
-                break
+            notifier.send(
+                f"H&M monitor needs attention — {watch.country}\n"
+                f"{watch.label}\n{error}\n"
+                f"Stock is unknown after {attempts} attempts. "
+                f"This item will retry in at least {delay / 60:.0f} minutes.\n"
+                + watch.url
+            )
+            record["error_alert_at"] = time.time()
+        except MonitorError:
+            LOG.error("Could not send the monitor error notification.")
+
+
+def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
+    if not dry_run:
+        migrate_retry_state(state)
+        save_state(state_path, state)
+    hm_retry_at = 0 if dry_run else state.get("hm_retry_at", 0)
+    if time.time() < hm_retry_at:
+        LOG.warning(
+            "H&M requested a rate-limit pause; retry in %.0f seconds. Stock is unknown.",
+            hm_retry_at - time.time(),
+        )
+        return len(watches)
+
+    # Resume unfinished items first, so a time-limited run cannot continually
+    # favour products at the beginning of the configuration file.
+    by_key = {watch.key: watch for watch in watches}
+    previous_order = state.get("pending_checks", [])
+    ordered_keys = list(dict.fromkeys(previous_order + list(by_key)))
+    pending = []
+    records = state.setdefault("watches", {})
+    for key in ordered_keys:
+        if key not in by_key:
+            continue
+        record = records.get(key, {})
+        if not dry_run and time.time() < record.get("retry_at", 0):
+            LOG.info(
+                "%s | %s | waiting %.0f seconds before retry; stock is unknown.",
+                by_key[key].country, by_key[key].label, record["retry_at"] - time.time(),
+            )
+            continue
+        pending.append(by_key[key])
+
+    attempts = {watch.key: 0 for watch in pending}
+    retry_at = {watch.key: 0 for watch in pending}
+    succeeded = set()
+    deadline = time.monotonic() + settings["cycle_budget_seconds"]
+    max_attempts = 1 if dry_run else settings["attempts_per_item"]
+
+    def save_progress():
         if not dry_run:
+            # Unattempted items take priority over retries on the next run.
+            unfinished = sorted(pending, key=lambda watch: attempts[watch.key] > 0)
+            state["pending_checks"] = [watch.key for watch in unfinished]
             save_state(state_path, state)
 
+    save_progress()
+    while pending and not STOP.is_set() and time.monotonic() < deadline:
+        # Each pass visits every eligible item once before retrying failures.
+        # A single 403 does not prevent the other product/country checks.
+        for watch in list(pending):
+            if STOP.is_set() or time.monotonic() >= deadline or time.time() < hm_retry_at:
+                break
+            if time.time() < retry_at[watch.key]:
+                continue
+
+            record = records.get(watch.key, {}) if dry_run else records.setdefault(watch.key, {})
+            attempts[watch.key] += 1
+            LOG.info(
+                "%s | %s | attempt %s/%s",
+                watch.country, watch.label, attempts[watch.key], max_attempts,
+            )
+            try:
+                check_watch(client, notifier, watch, record, settings, dry_run)
+            except MonitorError as error:
+                LOG.warning("%s | %s | UNKNOWN: %s", watch.country, watch.label, error)
+                delay = max(settings["retry_delay_seconds"], error.retry_after)
+
+                # A 429 is an explicit rate limit. Wait before any further H&M
+                # requests, including other products, and preserve long waits
+                # across workflow runs instead of sleeping past the job limit.
+                if error.rate_limited:
+                    delay = max(delay, settings["rate_limit_delay_seconds"])
+                    hm_retry_at = time.time() + delay
+                    if not dry_run:
+                        state["hm_retry_at"] = hm_retry_at
+                    LOG.warning("H&M rate limit: waiting at least %.0f seconds.", delay)
+
+                retry_at[watch.key] = time.time() + delay
+                if not dry_run:
+                    record.update({
+                        "last_error": str(error),
+                        "last_attempt_count": attempts[watch.key],
+                        "retry_at": retry_at[watch.key],
+                    })
+                if attempts[watch.key] >= max_attempts:
+                    pending.remove(watch)
+                    if not dry_run:
+                        cool_down_watch(
+                            notifier, watch, record, settings, error, attempts[watch.key]
+                        )
+            else:
+                pending.remove(watch)
+                succeeded.add(watch.key)
+                if not dry_run:
+                    record["last_attempt_count"] = attempts[watch.key]
+            save_progress()
+
+        if not pending or STOP.is_set() or time.monotonic() >= deadline:
+            break
+
+        # Wait only until the next eligible retry. Long Retry-After values are
+        # stored in state; other eligible items have already had their chance.
+        delay = max(
+            0,
+            min(retry_at[watch.key] for watch in pending) - time.time(),
+            hm_retry_at - time.time(),
+        )
+        if delay >= deadline - time.monotonic():
+            break
+        if STOP.wait(delay):
+            break
+
+    save_progress()
+    errors = len(watches) - len(succeeded)
+    attempted = sum(count > 0 for count in attempts.values())
+    LOG.info(
+        "Cycle summary: %s/%s items attempted; %s succeeded; "
+        "%s unresolved or cooling down; %s unfinished checks queued for a later run.",
+        attempted, len(watches), len(succeeded), errors, len(pending),
+    )
     heartbeat_hours = settings["heartbeat_hours"]
     if not dry_run and heartbeat_hours and time.time() - state.get("heartbeat_at", 0) >= heartbeat_hours * 3600:
         try:
             notifier.send(
-                f"H&M monitor status: {len(watches) - errors}/{len(watches)} checks succeeded "
+                f"H&M monitor status: {len(succeeded)}/{len(watches)} checks succeeded "
                 f"in this cycle; {errors} failed, skipped or waiting to retry.\n"
                 "Countries: " + ", ".join(dict.fromkeys(watch.country for watch in watches))
             )
@@ -609,10 +727,26 @@ def load_config(path):
         "metadata_refresh_hours": 6,
         "notify_on_first_check": True,
         "heartbeat_hours": 24,
+        "attempts_per_item": 3,
+        "retry_delay_seconds": 15,
+        "failure_cooldown_seconds": 600,
+        "rate_limit_delay_seconds": 60,
+        "cycle_budget_seconds": 300,
     }
     settings.update(config.get("settings", {}))
     if settings["interval_seconds"] < 300 or settings["metadata_refresh_hours"] <= 0:
         raise MonitorError("Use an interval of at least 300 seconds and a positive metadata refresh interval.")
+    retry_settings = {
+        "attempts_per_item": (1, 5),
+        "retry_delay_seconds": (5, 300),
+        "failure_cooldown_seconds": (300, 86400),
+        "rate_limit_delay_seconds": (30, 86400),
+        "cycle_budget_seconds": (30, 300),
+    }
+    for name, (minimum, maximum) in retry_settings.items():
+        value = settings[name]
+        if type(value) is not int or not minimum <= value <= maximum:
+            raise MonitorError(f"{name} must be an integer from {minimum} to {maximum}.")
     watches = []
     seen = set()
     known_locales = {country["locale"] for country in config["countries"]}
@@ -693,7 +827,7 @@ def main():
     if args.limit:
         watches = watches[:args.limit]
     mode = "connected Chrome" if args.connect_chrome else "browser" if args.browser else "direct HTTP"
-    LOG.info("H&M monitor 1.2 | mode: %s", mode)
+    LOG.info("H&M monitor 1.3 | mode: %s", mode)
     with stock_client(args) as hm_client:
         if args.dry_run:
             return 1 if run_cycle(hm_client, None, watches, {}, settings, args.state, True) else 0
@@ -707,7 +841,7 @@ def main():
                 delay = max(
                     1,
                     settings["interval_seconds"] - (time.monotonic() - started),
-                    state.get("pause_until", 0) - time.time(),
+                    state.get("hm_retry_at", 0) - time.time(),
                 )
                 STOP.wait(delay)
     return 0

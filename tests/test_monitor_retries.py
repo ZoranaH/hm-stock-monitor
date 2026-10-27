@@ -1,0 +1,350 @@
+"""Offline regression tests: no H&M requests and no real Telegram messages."""
+
+import copy
+import io
+import json
+import tempfile
+import unittest
+from collections import Counter
+from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
+from urllib.error import HTTPError
+
+import monitor
+
+
+class Clock:
+    def __init__(self):
+        self.now = 2_000_000_000.0
+        self.waits = []
+        self.stopped = False
+
+    def time(self):
+        return self.now
+
+    def wait(self, seconds):
+        self.waits.append(seconds)
+        self.now += seconds
+        return self.stopped
+
+    def is_set(self):
+        return self.stopped
+
+
+class Notifier:
+    def __init__(self):
+        self.messages = []
+
+    def send(self, message):
+        self.messages.append(message)
+
+
+class RetryTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.state_path = Path(self.temporary.name) / "state.json"
+        self.clock = Clock()
+        self.notifier = Notifier()
+        self.settings, self.watches = monitor.load_config(monitor.BASE / "config.json")
+        self.settings["heartbeat_hours"] = 0
+        self.state = {"watches": {}}
+        self.calls = []
+        self.counts = Counter()
+        self.behaviour = lambda watch, attempt: None
+        for target, replacement in [
+            ("time.time", self.clock.time),
+            ("time.monotonic", self.clock.time),
+            ("STOP", self.clock),
+            ("check_watch", self.check),
+        ]:
+            patcher = patch.object(monitor, target, replacement) if "." not in target else patch(
+                "monitor." + target, replacement
+            )
+            patcher.start()
+            self.addCleanup(patcher.stop)
+
+    def check(self, client, notifier, watch, record, settings, dry_run):
+        self.calls.append((watch.key, self.clock.now))
+        self.counts[watch.key] += 1
+        error = self.behaviour(watch, self.counts[watch.key])
+        if error:
+            raise error
+        if not dry_run:
+            record.update({"retry_at": 0, "failures": 0, "last_error": None})
+
+    def run_cycle(self, dry_run=False):
+        return monitor.run_cycle(
+            None, self.notifier, self.watches, self.state,
+            self.settings, self.state_path, dry_run,
+        )
+
+    def test_all_eight_items_are_checked_before_retrying_first_403(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", blocked=True)
+            if watch.key == first and attempt < 3 else None
+        )
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual([key for key, _ in self.calls[:8]], [w.key for w in self.watches])
+        self.assertEqual(self.counts[first], 3)
+        self.assertTrue(all(self.counts[w.key] == 1 for w in self.watches[1:]))
+        self.assertEqual(self.state["watches"][first]["retry_at"], 0)
+
+    def test_persistent_403_cools_only_failed_item_after_three_attempts(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", blocked=True) if watch.key == first else None
+        )
+        self.assertEqual(self.run_cycle(), 1)
+        self.assertEqual(self.counts[first], 3)
+        self.assertEqual(self.state["watches"][first]["retry_at"], self.clock.now + 600)
+        self.assertNotIn("hm_retry_at", self.state)
+        self.assertNotIn("pause_until", self.state)
+        self.assertEqual(json.loads(self.state_path.read_text()), self.state)
+
+    def test_all_items_can_fail_without_starving_later_items(self):
+        self.behaviour = lambda watch, attempt: monitor.MonitorError("HTTP 403", blocked=True)
+        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(list(self.counts.values()), [3] * 8)
+        expected_order = [w.key for w in self.watches] * 3
+        self.assertEqual([key for key, _ in self.calls], expected_order)
+
+    def test_retry_spacing_is_at_least_fifteen_seconds(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("timeout") if watch.key == first and attempt < 3 else None
+        )
+        self.run_cycle()
+        times = [when for key, when in self.calls if key == first]
+        self.assertEqual(times, [2_000_000_000, 2_000_000_015, 2_000_000_030])
+
+    def test_cooldown_survives_restart_and_does_not_skip_healthy_items(self):
+        self.test_persistent_403_cools_only_failed_item_after_three_attempts()
+        self.state = json.loads(self.state_path.read_text())
+        self.calls.clear()
+        self.counts.clear()
+        self.clock.now += 300
+        self.assertEqual(self.run_cycle(), 1)
+        self.assertNotIn(self.watches[0].key, self.counts)
+        self.assertEqual(len(self.counts), 7)
+        self.clock.now += 300
+        self.behaviour = lambda watch, attempt: None
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual(self.counts[self.watches[0].key], 1)
+
+    def test_long_item_retry_after_defers_only_that_item(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", retry_after=3600, blocked=True)
+            if watch.key == first else None
+        )
+        self.assertEqual(self.run_cycle(), 1)
+        self.assertEqual(len(self.calls), 8)
+        self.assertEqual(self.state["watches"][first]["retry_at"], self.clock.now + 3600)
+        self.assertEqual(self.state["pending_checks"], [first])
+        self.assertEqual(self.clock.waits, [])
+
+    def test_429_waits_before_other_items_and_then_completes_all_checks(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 429", retry_after=75, blocked=True, rate_limited=True)
+            if watch.key == first and attempt == 1 else None
+        )
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual(len(self.counts), 8)
+        self.assertTrue(all(when >= 2_000_000_075 for _, when in self.calls[1:]))
+
+    def test_long_429_is_persisted_and_unchecked_items_resume_first(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 429", retry_after=900, blocked=True, rate_limited=True)
+            if watch.key == first and attempt == 1 else None
+        )
+        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual(self.state["hm_retry_at"], self.clock.now + 900)
+        self.assertEqual(self.state["pending_checks"][0], self.watches[1].key)
+        self.state = json.loads(self.state_path.read_text())
+        self.calls.clear()
+        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.calls, [])
+        self.clock.now += 900
+        self.behaviour = lambda watch, attempt: None
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual(self.calls[0][0], self.watches[1].key)
+
+    def test_429_without_header_uses_sixty_second_wait(self):
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 429", blocked=True, rate_limited=True)
+            if watch.key == first and attempt == 1 else None
+        )
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual(self.clock.waits[0], 60)
+
+    def test_old_403_pause_is_removed_without_erasing_notification_history(self):
+        first = self.watches[0].key
+        self.state = {
+            "pause_until": self.clock.now + 3600,
+            "watches": {first: {"announced": ["XS"], "last_error": "HTTP 403", "retry_at": 0}},
+        }
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertNotIn("pause_until", self.state)
+        self.assertEqual(self.state["watches"][first]["announced"], ["XS"])
+
+    def test_old_429_pause_is_preserved(self):
+        self.state = {
+            "pause_until": self.clock.now + 3600,
+            "watches": {self.watches[0].key: {"last_error": "HTTP 429"}},
+        }
+        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.calls, [])
+        self.assertEqual(self.state["hm_retry_at"], self.clock.now + 3600)
+
+    def test_budget_preserves_unchecked_items_for_next_run(self):
+        self.settings["cycle_budget_seconds"] = 30
+        def slow_failure(watch, attempt):
+            self.clock.now += 31
+            return monitor.MonitorError("timeout")
+        self.behaviour = slow_failure
+        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(len(self.calls), 1)
+        self.state = json.loads(self.state_path.read_text())
+        self.calls.clear()
+        self.clock.now += 300
+        self.behaviour = lambda watch, attempt: None
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual(self.calls[0][0], self.watches[1].key)
+
+    def test_dry_run_checks_all_items_once_without_saving_or_sending(self):
+        self.behaviour = lambda watch, attempt: monitor.MonitorError("HTTP 403", blocked=True)
+        original = copy.deepcopy(self.state)
+        self.assertEqual(self.run_cycle(dry_run=True), 8)
+        self.assertEqual(list(self.counts.values()), [1] * 8)
+        self.assertFalse(self.state_path.exists())
+        self.assertEqual(self.state, original)
+        self.assertEqual(self.notifier.messages, [])
+
+    def test_stop_does_not_claim_unchecked_items_succeeded(self):
+        self.clock.stopped = True
+        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.calls, [])
+        self.assertEqual(len(self.state["pending_checks"]), 8)
+
+
+class TransportTests(unittest.TestCase):
+    def test_browser_product_403_and_429_have_different_retry_scope(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        for status in [403, 429]:
+            with self.subTest(status=status):
+                client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+                client.pending = {}
+                client.last_navigation = 0
+                client.page = Mock()
+                client.page.goto.return_value = SimpleNamespace(
+                    status=status, headers={"retry-after": "120"}
+                )
+                client.timeout_error = TimeoutError
+                client.browser_error = OSError
+                with self.assertRaises(monitor.MonitorError) as caught:
+                    client.metadata(watches[0])
+                self.assertEqual(caught.exception.rate_limited, status == 429)
+                self.assertEqual(caught.exception.retry_after, 120)
+                client.page.remove_listener.assert_called_once()
+
+    def test_browser_stock_429_also_sets_shared_rate_limit(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        watch = watches[0]
+        client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+        client.pending = {}
+        client.last_navigation = 0
+        client.page = Mock()
+        client.page.url = watch.url
+        client.timeout_error = TimeoutError
+        client.browser_error = OSError
+        def navigate(*args, **kwargs):
+            callback = client.page.on.call_args.args[1]
+            callback(SimpleNamespace(
+                url=watch.stock_url, status=429, headers={"retry-after": "120"}
+            ))
+            return SimpleNamespace(status=200)
+        client.page.goto.side_effect = navigate
+        with patch.object(monitor, "parse_metadata", return_value={}):
+            with self.assertRaises(monitor.MonitorError) as caught:
+                client.metadata(watch)
+        self.assertTrue(caught.exception.rate_limited)
+        self.assertEqual(caught.exception.retry_after, 120)
+
+    def test_only_hm_429_is_classified_as_a_shared_rate_limit(self):
+        for url, status, expected in [
+            ("https://www2.hm.com/product", 429, True),
+            ("https://www2.hm.com/product", 403, False),
+            ("https://api.telegram.org/test", 429, False),
+        ]:
+            with self.subTest(url=url, status=status):
+                error = HTTPError(url, status, "refused", {"Retry-After": "90"}, io.BytesIO())
+                with patch.object(monitor, "urlopen", side_effect=error):
+                    with self.assertRaises(monitor.MonitorError) as caught:
+                        monitor.Client(spacing=0).request(url)
+                self.assertEqual(caught.exception.rate_limited, expected)
+                self.assertEqual(caught.exception.retry_after, 90)
+
+    def test_error_preserves_previous_stock_and_does_not_rearm_an_alert(self):
+        settings, watches = monitor.load_config(monitor.BASE / "config.json")
+        watch = watches[0]
+        record = {"announced": ["XS"], "misses": {}, "last_available": ["XS"], "initialized": True}
+        original = copy.deepcopy(record)
+        client = Mock()
+        client.metadata.side_effect = monitor.MonitorError("HTTP 403", blocked=True)
+        notifier = Notifier()
+        with self.assertRaises(monitor.MonitorError):
+            monitor.check_watch(client, notifier, watch, record, settings, False)
+        self.assertEqual(record, original)
+        self.assertEqual(notifier.messages, [])
+
+    def test_successful_retry_sends_one_stock_alert_and_preserves_deduplication(self):
+        settings, watches = monitor.load_config(monitor.BASE / "config.json")
+        watch = watches[0]
+        sku = watch.article + "002"
+        metadata = {"sizes": {"XS": sku}, "coming_soon": False, "fetched_at": 2_000_000_000,
+                    "name": "Belt", "colour": "Black"}
+        client = Mock()
+        client.metadata.side_effect = [monitor.MonitorError("timeout"), metadata, metadata, metadata]
+        client.stock.return_value = ({sku}, set())
+        notifier = Notifier()
+        record = {}
+        with self.assertRaises(monitor.MonitorError):
+            monitor.check_watch(client, notifier, watch, record, settings, False)
+        monitor.check_watch(client, notifier, watch, record, settings, False)
+        monitor.check_watch(client, notifier, watch, record, settings, False)
+        self.assertEqual(len(notifier.messages), 1)
+        self.assertEqual(record["announced"], ["XS"])
+        self.assertEqual(record["failures"], 0)
+
+    def test_original_config_gets_retry_defaults(self):
+        with tempfile.TemporaryDirectory() as directory:
+            config = json.loads((monitor.BASE / "config.json").read_text())
+            config["settings"] = {"interval_seconds": 300}
+            path = Path(directory) / "config.json"
+            path.write_text(json.dumps(config))
+            settings, watches = monitor.load_config(path)
+        self.assertEqual(settings["attempts_per_item"], 3)
+        self.assertEqual(settings["failure_cooldown_seconds"], 600)
+        self.assertEqual(len(watches), 8)
+
+    def test_invalid_retry_settings_are_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "config.json"
+            config = json.loads((monitor.BASE / "config.json").read_text())
+            for value in [0, 6, True, 2.5, "3"]:
+                with self.subTest(value=value):
+                    config["settings"]["attempts_per_item"] = value
+                    path.write_text(json.dumps(config))
+                    with self.assertRaises(monitor.MonitorError):
+                        monitor.load_config(path)
+
+
+if __name__ == "__main__":
+    unittest.main()

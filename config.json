@@ -3,7 +3,12 @@
     "interval_seconds": 300,
     "metadata_refresh_hours": 6,
     "notify_on_first_check": true,
-    "heartbeat_hours": 24
+    "heartbeat_hours": 24,
+    "attempts_per_item": 3,
+    "retry_delay_seconds": 15,
+    "failure_cooldown_seconds": 600,
+    "rate_limit_delay_seconds": 60,
+    "cycle_budget_seconds": 300
   },
   "countries": [
     { "name": "Romania", "locale": "ro_ro" },
