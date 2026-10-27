@@ -53,6 +53,21 @@ The defaults also work with the previous `config.json`; its item list does not
 need to be replaced to install the retry fix. Explicit settings are included
 in this repository to make later adjustments straightforward.
 
+## Browser compatibility test
+
+The GitHub runner image rollout alternated Chrome 155.0.8059.39 and 156.0.8078.47.
+Recent successful checks used 155; recent blocked checks used 156. An earlier
+155 run was also refused, so the browser version is a suspected factor, not a
+proven cause or a guarantee of access.
+
+The workflow temporarily pins `HM_CHROME_VERSION` to 155.0.8059.39 to test this
+variable consistently. It uses the installed Chrome when its version matches;
+otherwise it downloads that exact build from Google's Chrome for Testing
+archive. It verifies the version before starting checks and does not silently
+fall back to a different version. Existing cooldowns and notification history
+remain in effect. Review this temporary pin after testing; browser security
+updates should not remain deferred indefinitely.
+
 ## Offline verification
 
 Run from the repository root:
