@@ -14,14 +14,29 @@ Each cycle checks all eligible items before retrying failures. The defaults are:
 | Setting | Default | Meaning |
 | --- | --- | --- |
 | `attempts_per_item` | 3 | Initial check plus up to two retries per cycle |
-| `retry_delay_seconds` | 15 | Minimum delay before retrying the same item |
-| `failure_cooldown_seconds` | 600 | Item-only cooldown after all attempts fail |
+| `retry_delay_seconds` | 60 | Minimum delay before retrying the same item |
+| `failure_cooldown_seconds` | 1800 | Initial item-only cooldown after all attempts fail |
+| `max_failure_cooldown_seconds` | 3600 | Maximum local cooldown after consecutive failed cycles |
 | `rate_limit_delay_seconds` | 60 | Minimum shared wait after an HTTP 429 |
 | `cycle_budget_seconds` | 300 | Stop starting new checks after this much cycle time |
 
 A single HTTP 403 no longer cancels the batch or pauses every product for an
 hour. Failed checks remain **unknown**, never “out of stock.” Successful items
 are not retried in the same cycle. Existing stock-alert deduplication is kept.
+
+After three failed attempts, that item waits 30 minutes. Consecutive failed
+cycles double its cooldown, capped at 60 minutes by default. A successful check
+resets the failure count. These pauses reduce repeated requests; they do not
+guarantee H&M will lift an access block. Existing saved deadlines remain in
+effect on upgrade; the longer cooldown applies when the next batch of attempts
+fails. With a five-minute scheduler, a check runs at the next dispatch after
+its deadline, so the actual gap can be a few minutes longer.
+
+Cycle summaries report successful checks, exhausted failures, skipped cooldowns
+and unfinished checks separately. A run still exits unsuccessfully when some
+stock is unknown; a skipped item is never reported as a successful stock check.
+For HTTP 403/429, browser logs include a limited response classification and
+server name to help diagnose the block. Cookies and response HTML are not logged.
 
 Server `Retry-After` delays take precedence over shorter local delays. An HTTP
 429 pauses all H&M requests because it explicitly signals a rate limit. If the

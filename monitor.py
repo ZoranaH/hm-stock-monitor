@@ -333,6 +333,7 @@ class BrowserClient:
             if response is None:
                 raise MonitorError("Browser navigation returned no product response.")
             if response.status >= 400:
+                self.log_refusal(response, watch)
                 raise MonitorError(
                     f"Browser product page: HTTP {response.status}. H&M refused this browser request.",
                     retry_delay(response.headers.get("retry-after")),
@@ -352,6 +353,7 @@ class BrowserClient:
             if stock_responses:
                 stock_response = stock_responses[-1]
                 if stock_response.status != 200:
+                    self.log_refusal(stock_response, watch)
                     raise MonitorError(
                         f"Browser stock request: HTTP {stock_response.status}; stock is unknown.",
                         retry_delay(stock_response.headers.get("retry-after")),
@@ -375,6 +377,28 @@ class BrowserClient:
             raise MonitorError("Browser could not read the page or stock response.") from None
         finally:
             self.page.remove_listener("response", collect_stock)
+
+    def log_refusal(self, response, watch):
+        """Classify the response already received without logging cookies or HTML."""
+        if response.status not in {403, 429}:
+            return
+        page_type = "unclassified refusal"
+        try:
+            body = response.text()[:20000].lower()
+            if "captcha" in body or "verify you are human" in body:
+                page_type = "verification page"
+            elif "access denied" in body:
+                page_type = "access denied page"
+            elif "too many requests" in body:
+                page_type = "rate limit page"
+        except self.browser_error:
+            page_type = "response body unavailable"
+        server = re.sub(r"[^A-Za-z0-9 ._/-]", "?", response.headers.get("server", "unspecified"))[:80]
+        LOG.warning(
+            "%s | %s | refusal details: HTTP %s; server=%s; type=%s; Retry-After=%.0fs",
+            watch.country, watch.label, response.status, server, page_type,
+            retry_delay(response.headers.get("retry-after")),
+        )
 
     def stock(self, watch):
         if watch.key not in self.pending:
@@ -561,7 +585,13 @@ def migrate_retry_state(state):
 def cool_down_watch(notifier, watch, record, settings, error, attempts):
     """Apply an item-only cooldown after its attempts have been exhausted."""
     failures = record.get("failures", 0) + 1
-    delay = max(settings["failure_cooldown_seconds"], error.retry_after)
+    # Repeated failed cycles back off further; a successful check resets failures.
+    # Bound the exponent so a long-running failure cannot create a huge integer.
+    local_delay = min(
+        settings["max_failure_cooldown_seconds"],
+        settings["failure_cooldown_seconds"] * 2 ** min(failures - 1, 10),
+    )
+    delay = max(local_delay, error.retry_after)
     record.update({
         "failures": failures,
         "retry_at": time.time() + delay,
@@ -604,12 +634,14 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
     previous_order = state.get("pending_checks", [])
     ordered_keys = list(dict.fromkeys(previous_order + list(by_key)))
     pending = []
+    cooling_down = set()
     records = state.setdefault("watches", {})
     for key in ordered_keys:
         if key not in by_key:
             continue
         record = records.get(key, {})
         if not dry_run and time.time() < record.get("retry_at", 0):
+            cooling_down.add(key)
             LOG.info(
                 "%s | %s | waiting %.0f seconds before retry; stock is unknown.",
                 by_key[key].country, by_key[key].label, record["retry_at"] - time.time(),
@@ -620,6 +652,7 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
     attempts = {watch.key: 0 for watch in pending}
     retry_at = {watch.key: 0 for watch in pending}
     succeeded = set()
+    failed = set()
     deadline = time.monotonic() + settings["cycle_budget_seconds"]
     max_attempts = 1 if dry_run else settings["attempts_per_item"]
 
@@ -671,6 +704,7 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
                     })
                 if attempts[watch.key] >= max_attempts:
                     pending.remove(watch)
+                    failed.add(watch.key)
                     if not dry_run:
                         cool_down_watch(
                             notifier, watch, record, settings, error, attempts[watch.key]
@@ -702,15 +736,17 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
     attempted = sum(count > 0 for count in attempts.values())
     LOG.info(
         "Cycle summary: %s/%s items attempted; %s succeeded; "
-        "%s unresolved or cooling down; %s unfinished checks queued for a later run.",
-        attempted, len(watches), len(succeeded), errors, len(pending),
+        "%s failed after all attempts; %s skipped for cooldown; "
+        "%s unfinished checks queued for a later run.",
+        attempted, len(watches), len(succeeded), len(failed), len(cooling_down), len(pending),
     )
     heartbeat_hours = settings["heartbeat_hours"]
     if not dry_run and heartbeat_hours and time.time() - state.get("heartbeat_at", 0) >= heartbeat_hours * 3600:
         try:
             notifier.send(
                 f"H&M monitor status: {len(succeeded)}/{len(watches)} checks succeeded "
-                f"in this cycle; {errors} failed, skipped or waiting to retry.\n"
+                f"in this cycle; {len(failed)} failed after all attempts; "
+                f"{len(cooling_down)} skipped for cooldown; {len(pending)} waiting to finish.\n"
                 "Countries: " + ", ".join(dict.fromkeys(watch.country for watch in watches))
             )
             state["heartbeat_at"] = time.time()
@@ -728,18 +764,25 @@ def load_config(path):
         "notify_on_first_check": True,
         "heartbeat_hours": 24,
         "attempts_per_item": 3,
-        "retry_delay_seconds": 15,
-        "failure_cooldown_seconds": 600,
+        "retry_delay_seconds": 60,
+        "failure_cooldown_seconds": 1800,
+        "max_failure_cooldown_seconds": 3600,
         "rate_limit_delay_seconds": 60,
         "cycle_budget_seconds": 300,
     }
     settings.update(config.get("settings", {}))
+    # Existing configurations with a longer base cooldown keep their setting.
+    if "max_failure_cooldown_seconds" not in config.get("settings", {}):
+        base_cooldown = settings["failure_cooldown_seconds"]
+        if type(base_cooldown) is int:
+            settings["max_failure_cooldown_seconds"] = max(3600, base_cooldown)
     if settings["interval_seconds"] < 300 or settings["metadata_refresh_hours"] <= 0:
         raise MonitorError("Use an interval of at least 300 seconds and a positive metadata refresh interval.")
     retry_settings = {
         "attempts_per_item": (1, 5),
         "retry_delay_seconds": (5, 300),
         "failure_cooldown_seconds": (300, 86400),
+        "max_failure_cooldown_seconds": (300, 86400),
         "rate_limit_delay_seconds": (30, 86400),
         "cycle_budget_seconds": (30, 300),
     }
@@ -747,6 +790,8 @@ def load_config(path):
         value = settings[name]
         if type(value) is not int or not minimum <= value <= maximum:
             raise MonitorError(f"{name} must be an integer from {minimum} to {maximum}.")
+    if settings["max_failure_cooldown_seconds"] < settings["failure_cooldown_seconds"]:
+        raise MonitorError("max_failure_cooldown_seconds must be at least failure_cooldown_seconds.")
     watches = []
     seen = set()
     known_locales = {country["locale"] for country in config["countries"]}
@@ -827,7 +872,7 @@ def main():
     if args.limit:
         watches = watches[:args.limit]
     mode = "connected Chrome" if args.connect_chrome else "browser" if args.browser else "direct HTTP"
-    LOG.info("H&M monitor 1.3 | mode: %s", mode)
+    LOG.info("H&M monitor 1.4 | mode: %s", mode)
     with stock_client(args) as hm_client:
         if args.dry_run:
             return 1 if run_cycle(hm_client, None, watches, {}, settings, args.state, True) else 0

@@ -5,8 +5,9 @@
     "notify_on_first_check": true,
     "heartbeat_hours": 24,
     "attempts_per_item": 3,
-    "retry_delay_seconds": 15,
-    "failure_cooldown_seconds": 600,
+    "retry_delay_seconds": 60,
+    "failure_cooldown_seconds": 1800,
+    "max_failure_cooldown_seconds": 3600,
     "rate_limit_delay_seconds": 60,
     "cycle_budget_seconds": 300
   },

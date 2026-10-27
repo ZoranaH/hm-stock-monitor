@@ -49,6 +49,8 @@ class RetryTests(unittest.TestCase):
         self.notifier = Notifier()
         self.settings, self.watches = monitor.load_config(monitor.BASE / "config.json")
         self.settings["heartbeat_hours"] = 0
+        # Keep the original configurable timings covered alongside the new defaults.
+        self.settings.update({"retry_delay_seconds": 15, "failure_cooldown_seconds": 600})
         self.state = {"watches": {}}
         self.calls = []
         self.counts = Counter()
@@ -233,6 +235,65 @@ class RetryTests(unittest.TestCase):
         self.assertEqual(self.calls, [])
         self.assertEqual(len(self.state["pending_checks"]), 8)
 
+    def test_repeated_failures_back_off_across_restarts_and_success_resets_delay(self):
+        self.settings.update({"retry_delay_seconds": 60, "failure_cooldown_seconds": 1800})
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", blocked=True) if watch.key == first else None
+        )
+        for cycle, expected_delay in enumerate([1800, 3600, 3600], start=1):
+            self.assertEqual(self.run_cycle(), 1)
+            record = self.state["watches"][first]
+            self.assertEqual(record["failures"], cycle)
+            self.assertEqual(record["retry_at"], self.clock.now + expected_delay)
+            self.assertEqual(self.counts[first], cycle * 3)
+            self.assertTrue(all(self.counts[watch.key] == cycle for watch in self.watches[1:]))
+            self.state = json.loads(self.state_path.read_text())
+            self.clock.now = record["retry_at"]
+
+        self.behaviour = lambda watch, attempt: None
+        self.assertEqual(self.run_cycle(), 0)
+        self.assertEqual(self.state["watches"][first]["failures"], 0)
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", blocked=True) if watch.key == first else None
+        )
+        self.assertEqual(self.run_cycle(), 1)
+        self.assertEqual(self.state["watches"][first]["retry_at"], self.clock.now + 1800)
+
+    def test_new_retry_delay_spaces_attempts_one_minute_apart(self):
+        self.settings["retry_delay_seconds"] = 60
+        first = self.watches[0].key
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", blocked=True)
+            if watch.key == first and attempt < 3 else None
+        )
+        self.assertEqual(self.run_cycle(), 0)
+        times = [when for key, when in self.calls if key == first]
+        self.assertEqual(times, [2_000_000_000, 2_000_000_060, 2_000_000_120])
+
+    def test_server_retry_after_can_exceed_local_cooldown_cap(self):
+        record = {"failures": 10000}
+        monitor.cool_down_watch(
+            self.notifier, self.watches[0], record, self.settings,
+            monitor.MonitorError("HTTP 403", retry_after=7200, blocked=True), 3,
+        )
+        self.assertEqual(record["retry_at"], self.clock.now + 7200)
+
+    def test_summary_and_heartbeat_distinguish_skipped_items_from_new_failures(self):
+        self.settings["heartbeat_hours"] = 24
+        first, second = self.watches[:2]
+        self.state["watches"][first.key] = {"retry_at": self.clock.now + 300}
+        self.behaviour = lambda watch, attempt: (
+            monitor.MonitorError("HTTP 403", blocked=True) if watch.key == second.key else None
+        )
+        with self.assertLogs(monitor.LOG, level="INFO") as logs:
+            self.assertEqual(self.run_cycle(), 2)
+        self.assertIn(
+            "7/8 items attempted; 6 succeeded; 1 failed after all attempts; "
+            "1 skipped for cooldown; 0 unfinished checks", "\n".join(logs.output),
+        )
+        self.assertIn("1 failed after all attempts; 1 skipped for cooldown", self.notifier.messages[0])
+
 
 class TransportTests(unittest.TestCase):
     def test_browser_product_403_and_429_have_different_retry_scope(self):
@@ -244,7 +305,7 @@ class TransportTests(unittest.TestCase):
                 client.last_navigation = 0
                 client.page = Mock()
                 client.page.goto.return_value = SimpleNamespace(
-                    status=status, headers={"retry-after": "120"}
+                    status=status, headers={"retry-after": "120"}, text=lambda: "Access Denied"
                 )
                 client.timeout_error = TimeoutError
                 client.browser_error = OSError
@@ -267,7 +328,8 @@ class TransportTests(unittest.TestCase):
         def navigate(*args, **kwargs):
             callback = client.page.on.call_args.args[1]
             callback(SimpleNamespace(
-                url=watch.stock_url, status=429, headers={"retry-after": "120"}
+                url=watch.stock_url, status=429, headers={"retry-after": "120"},
+                text=lambda: "Too many requests",
             ))
             return SimpleNamespace(status=200)
         client.page.goto.side_effect = navigate
@@ -323,6 +385,25 @@ class TransportTests(unittest.TestCase):
         self.assertEqual(record["announced"], ["XS"])
         self.assertEqual(record["failures"], 0)
 
+    def test_refusal_diagnostics_do_not_log_response_html_or_cookies(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+        client.browser_error = OSError
+        response = SimpleNamespace(
+            status=403,
+            headers={"server": "Example-Edge", "set-cookie": "secret-cookie", "retry-after": "90"},
+            text=lambda: "<h1>Access Denied</h1> secret-body",
+        )
+        with self.assertLogs(monitor.LOG, level="WARNING") as logs:
+            client.log_refusal(response, watches[0])
+        output = "\n".join(logs.output)
+        self.assertIn("server=Example-Edge; type=access denied page; Retry-After=90s", output)
+        self.assertNotIn("secret", output)
+        response.text = Mock(side_effect=OSError("body unavailable"))
+        with self.assertLogs(monitor.LOG, level="WARNING") as logs:
+            client.log_refusal(response, watches[0])
+        self.assertIn("type=response body unavailable", "\n".join(logs.output))
+
     def test_original_config_gets_retry_defaults(self):
         with tempfile.TemporaryDirectory() as directory:
             config = json.loads((monitor.BASE / "config.json").read_text())
@@ -331,8 +412,23 @@ class TransportTests(unittest.TestCase):
             path.write_text(json.dumps(config))
             settings, watches = monitor.load_config(path)
         self.assertEqual(settings["attempts_per_item"], 3)
-        self.assertEqual(settings["failure_cooldown_seconds"], 600)
+        self.assertEqual(settings["retry_delay_seconds"], 60)
+        self.assertEqual(settings["failure_cooldown_seconds"], 1800)
+        self.assertEqual(settings["max_failure_cooldown_seconds"], 3600)
         self.assertEqual(len(watches), 8)
+
+    def test_existing_long_cooldown_is_preserved_and_inconsistent_cap_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            config = json.loads((monitor.BASE / "config.json").read_text())
+            config["settings"] = {"failure_cooldown_seconds": 7200}
+            path = Path(directory) / "config.json"
+            path.write_text(json.dumps(config))
+            settings, _ = monitor.load_config(path)
+            self.assertEqual(settings["max_failure_cooldown_seconds"], 7200)
+            config["settings"]["max_failure_cooldown_seconds"] = 3600
+            path.write_text(json.dumps(config))
+            with self.assertRaises(monitor.MonitorError):
+                monitor.load_config(path)
 
     def test_invalid_retry_settings_are_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
