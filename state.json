@@ -11,18 +11,22 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793169651.3740819
+        "fetched_at": 1793176855.279071
       },
-      "announced": [],
+      "announced": [
+        "L"
+      ],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169646.3934526,
-      "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176752.9598768,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "last_success": 1793176845.8988066,
+      "last_available": [
+        "L"
+      ],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 3
+      "last_attempt_count": 1
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -68,12 +72,12 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793176543.5157716
+        "fetched_at": 1793176858.2858453
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793176536.885977,
+      "last_success": 1793176855.7673388,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -92,12 +96,12 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793176546.3218896
+        "fetched_at": 1793176861.1261663
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793176543.5200753,
+      "last_success": 1793176858.2917671,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -123,17 +127,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793169661.8283515
+        "fetched_at": 1793176863.7093267
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169659.3208787,
+      "last_success": 1793176861.1337042,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176783.6799033,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137289.8842378
     },
     "de_de:1349627001": {
@@ -149,17 +153,17 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793169664.2226377
+        "fetched_at": 1793176866.901953
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169661.8409433,
+      "last_success": 1793176863.7141266,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176814.756208,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137291.9361713
     },
     "sr_rs:1343794001": {
@@ -180,12 +184,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793176548.9110687
+        "fetched_at": 1793176869.2601871
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793176546.3268762,
+      "last_success": 1793176866.9076202,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -206,12 +210,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793176551.4977741
+        "fetched_at": 1793176871.620239
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793176548.914952,
+      "last_success": 1793176869.265424,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
