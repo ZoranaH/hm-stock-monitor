@@ -11,14 +11,14 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793221335.1920135
+        "fetched_at": 1793221547.9628277
       },
       "announced": [
         "S"
       ],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221320.7194457,
+      "last_success": 1793221539.9812984,
       "last_available": [
         "S"
       ],
@@ -26,7 +26,7 @@
       "retry_at": 0,
       "last_error": null,
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 2
+      "last_attempt_count": 1
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -46,17 +46,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793221338.6892288
+        "fetched_at": 1793221550.9301074
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221335.5356557,
+      "last_success": 1793221547.9691906,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 2,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137284.1095011
     },
     "ro_ro:1349627001": {
@@ -72,12 +72,12 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793221268.7351918
+        "fetched_at": 1793221554.239482
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221262.673839,
+      "last_success": 1793221550.9353662,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -96,12 +96,12 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793221272.0481408
+        "fetched_at": 1793221557.8974025
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221268.7398815,
+      "last_success": 1793221554.2441924,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -127,12 +127,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793221275.1596868
+        "fetched_at": 1793221561.07678
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221272.0524392,
+      "last_success": 1793221557.9068007,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -153,12 +153,12 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793221278.3724449
+        "fetched_at": 1793221564.0695019
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221275.1654735,
+      "last_success": 1793221561.0819364,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -184,12 +184,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793221281.6220126
+        "fetched_at": 1793221567.477111
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221278.376811,
+      "last_success": 1793221564.0749571,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -210,12 +210,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793221285.6202128
+        "fetched_at": 1793221570.077287
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793221281.6268334,
+      "last_success": 1793221567.4820929,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
