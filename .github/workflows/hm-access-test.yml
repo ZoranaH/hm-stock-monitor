@@ -136,6 +136,17 @@ jobs:
               --output "$chrome_archive"
             unzip -q "$chrome_archive" -d "$chrome_directory"
             chrome_binary="$chrome_directory/chrome-linux64/chrome"
+
+            # Ubuntu restricts user namespaces for downloaded browser paths.
+            # Use the installed Chrome's root-owned SUID helper, as documented by
+            # Chromium, so the downloaded build retains its browser sandbox.
+            sandbox_helper="/opt/google/chrome/chrome-sandbox"
+            if [ ! -x "$sandbox_helper" ] || [ ! -u "$sandbox_helper" ] || \
+               [ "$(stat -c %u "$sandbox_helper")" != "0" ]; then
+              echo "::error::Installed Chrome sandbox helper is missing or invalid."
+              exit 1
+            fi
+            echo "CHROME_DEVEL_SANDBOX=$sandbox_helper" >> "$GITHUB_ENV"
           fi
 
           actual_version=$("$chrome_binary" --product-version)
