@@ -296,6 +296,48 @@ class RetryTests(unittest.TestCase):
 
 
 class TransportTests(unittest.TestCase):
+    def test_product_script_timeout_reports_safe_page_markers(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        watch = watches[0]
+        client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+        client.pending = {}
+        client.last_navigation = 0
+        client.page = Mock()
+        client.page.url = watch.url
+        client.page.goto.return_value = SimpleNamespace(status=200)
+        client.page.locator.return_value.wait_for.side_effect = TimeoutError()
+        client.page.content.return_value = "Verify you are human. private-body-and-cookie"
+        client.timeout_error = TimeoutError
+        client.browser_error = OSError
+        with self.assertLogs(monitor.LOG, level="WARNING") as logs:
+            with self.assertRaises(monitor.MonitorError):
+                client.metadata(watch)
+        output = "\n".join(logs.output)
+        self.assertIn("stage=product data script; HTTP=200", output)
+        self.assertIn("product-data marker=no; page hint=verification marker", output)
+        self.assertNotIn("private", output)
+        self.assertEqual(client.pending, {})
+        client.page.goto.assert_called_once()
+        client.page.remove_listener.assert_called_once()
+
+    def test_navigation_timeout_survives_unreadable_dom(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+        client.pending = {}
+        client.last_navigation = 0
+        client.page = Mock()
+        client.page.goto.side_effect = TimeoutError()
+        client.page.content.side_effect = OSError("private diagnostic")
+        client.timeout_error = TimeoutError
+        client.browser_error = OSError
+        with self.assertLogs(monitor.LOG, level="WARNING") as logs:
+            with self.assertRaises(monitor.MonitorError):
+                client.metadata(watches[0])
+        output = "\n".join(logs.output)
+        self.assertIn("stage=navigation; HTTP=unavailable", output)
+        self.assertIn("page hint=DOM unavailable", output)
+        self.assertNotIn("private", output)
+
     def test_browser_product_403_and_429_have_different_retry_scope(self):
         _, watches = monitor.load_config(monitor.BASE / "config.json")
         for status in [403, 429, 503]:

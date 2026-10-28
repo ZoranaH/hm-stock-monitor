@@ -328,6 +328,8 @@ class BrowserClient:
                 stock_responses.append(response)
 
         self.page.on("response", collect_stock)
+        response = None
+        stage = "navigation"
         try:
             response = self.page.goto(watch.url, wait_until="domcontentloaded")
             if response is None:
@@ -344,7 +346,9 @@ class BrowserClient:
             actual = urlsplit(self.page.url)
             if (actual.scheme, actual.hostname, actual.path) != (expected.scheme, expected.hostname, expected.path):
                 raise MonitorError("Browser product page redirected; item may not be listed in this country.")
+            stage = "product data script"
             self.page.locator("script#__NEXT_DATA__").wait_for(state="attached")
+            stage = "stock data"
             # Allow stock requests initiated by the page to complete. If none are
             # observed, use the validated stock snapshot in this page's HTML.
             self.page.wait_for_timeout(1500)
@@ -369,6 +373,7 @@ class BrowserClient:
             self.pending[watch.key] = stock
             return metadata
         except self.timeout_error:
+            self.log_timeout(watch, stage, response)
             raise MonitorError(
                 "Browser timed out loading product data. Check whether the site opens normally "
                 "or shows a consent/access page."
@@ -377,6 +382,29 @@ class BrowserClient:
             raise MonitorError("Browser could not read the page or stock response.") from None
         finally:
             self.page.remove_listener("response", collect_stock)
+
+    def log_timeout(self, watch, stage, response):
+        """Inspect the existing DOM only; never expose page text, URLs or cookies."""
+        hint = "unclassified"
+        has_data = "unknown"
+        try:
+            html = self.page.content().lower()
+            has_data = "yes" if "__next_data__" in html else "no"
+            if "verify you are human" in html or "captcha" in html:
+                hint = "verification marker"
+            elif "access denied" in html:
+                hint = "access denied marker"
+            elif "service unavailable" in html:
+                hint = "service unavailable marker"
+        except self.browser_error:
+            hint = "DOM unavailable"
+        LOG.warning(
+            "%s | %s | timeout details: stage=%s; HTTP=%s; "
+            "product-data marker=%s; page hint=%s",
+            watch.country, watch.label, stage,
+            response.status if response is not None else "unavailable",
+            has_data, hint,
+        )
 
     def log_refusal(self, response, watch):
         """Classify the response already received without logging cookies or HTML."""
