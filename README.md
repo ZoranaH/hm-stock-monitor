@@ -68,11 +68,13 @@ fall back to a different version. Existing cooldowns and notification history
 remain in effect. Review this temporary pin after testing; browser security
 updates should not remain deferred indefinitely.
 
-On Ubuntu runners, the downloaded build uses the installed Chrome's root-owned,
-setuid sandbox helper via `CHROME_DEVEL_SANDBOX`. This follows Chromium's
-[documented setup](https://chromium.googlesource.com/chromium/src/+/main/docs/security/apparmor-userns-restrictions.md)
-and fixes the observed “No usable sandbox” startup failure. The workflow stops
-if the helper is missing or invalid; Chrome's sandbox remains enabled.
+On Ubuntu runners, the downloaded build uses the matching `chrome_sandbox`
+helper included in Google's archive. The workflow installs it root-owned with
+mode 4755 under `/usr/local/sbin` and selects it via `CHROME_DEVEL_SANDBOX`,
+following Chromium's [documented installation](https://chromium.googlesource.com/chromium/src/+/main/docs/linux/suid_sandbox_development.md).
+This addresses the observed “No usable sandbox” startup failure without relying
+on the runner's installed Chrome helper, which is unavailable on some images.
+The workflow stops if installation fails; Chrome's sandbox remains enabled.
 
 ## Offline verification
 
