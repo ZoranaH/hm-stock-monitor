@@ -19,10 +19,10 @@
       "last_success": 1793169646.3934526,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170279.511219,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 1
+      "last_attempt_count": 2
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -50,9 +50,9 @@
       "last_success": 1793169651.3791943,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
-      "last_attempt_count": 1,
+      "retry_at": 1793170310.1458175,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "last_attempt_count": 2,
       "error_alert_at": 1793137284.1095011
     },
     "ro_ro:1349627001": {
@@ -76,8 +76,8 @@
       "last_success": 1793169653.9432786,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170096.0810483,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
       "error_alert_at": 1793137286.5424266
     },
@@ -100,8 +100,8 @@
       "last_success": 1793169656.530637,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170126.653892,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
       "error_alert_at": 1793137287.8812976
     },
@@ -131,8 +131,8 @@
       "last_success": 1793169659.3208787,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170157.2203686,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
       "error_alert_at": 1793137289.8842378
     },
@@ -157,8 +157,8 @@
       "last_success": 1793169661.8409433,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170187.8416953,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
       "error_alert_at": 1793137291.9361713
     },
@@ -188,8 +188,8 @@
       "last_success": 1793169664.249741,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170218.3914733,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
       "error_alert_at": 1793137293.979792
     },
@@ -214,13 +214,22 @@
       "last_success": 1793169666.6313925,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793170248.9470556,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
       "error_alert_at": 1793137295.842755
     }
   },
   "heartbeat_at": 1793100672.8546824,
   "access_alert_at": 1793096773.8046324,
-  "pending_checks": []
+  "pending_checks": [
+    "ro_ro:1343845001",
+    "ro_ro:1343794001",
+    "ro_ro:1349627001",
+    "de_de:1343845001",
+    "de_de:1343794001",
+    "de_de:1349627001",
+    "sr_rs:1343794001",
+    "sr_rs:1349627001"
+  ]
 }
