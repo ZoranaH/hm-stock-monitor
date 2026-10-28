@@ -68,16 +68,16 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793180753.1529255
+        "fetched_at": 1793181389.928943
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793180750.7114496,
+      "last_success": 1793181377.808021,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793181199.7444963,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 1,
       "error_alert_at": 1793137286.5424266
     },
@@ -92,16 +92,16 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793180756.030625
+        "fetched_at": 1793181393.3305159
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793180753.158139,
+      "last_success": 1793181389.933241,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793181230.36205,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 1,
       "error_alert_at": 1793137287.8812976
     },
@@ -123,16 +123,16 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793180758.4818122
+        "fetched_at": 1793181395.953376
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793180756.037247,
+      "last_success": 1793181393.335472,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793181260.8742907,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 1,
       "error_alert_at": 1793137289.8842378
     },
@@ -149,16 +149,16 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793180761.0459242
+        "fetched_at": 1793181398.337702
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793180758.4866152,
+      "last_success": 1793181395.9584389,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793181291.4183059,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 1,
       "error_alert_at": 1793137291.9361713
     },
@@ -180,16 +180,16 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793180763.5246663
+        "fetched_at": 1793181400.84704
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793180761.0517612,
+      "last_success": 1793181398.3425288,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793181321.774092,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 1,
       "error_alert_at": 1793137293.979792
     },
@@ -206,30 +206,21 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793180765.928052
+        "fetched_at": 1793181403.6872675
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793180763.5295427,
+      "last_success": 1793181400.8513775,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793181352.1244206,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 1,
       "error_alert_at": 1793137295.842755
     }
   },
   "heartbeat_at": 1793100672.8546824,
   "access_alert_at": 1793096773.8046324,
-  "pending_checks": [
-    "ro_ro:1343845001",
-    "ro_ro:1343794001",
-    "ro_ro:1349627001",
-    "de_de:1343845001",
-    "de_de:1343794001",
-    "de_de:1349627001",
-    "sr_rs:1343794001",
-    "sr_rs:1349627001"
-  ]
+  "pending_checks": []
 }
