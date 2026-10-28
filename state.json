@@ -68,17 +68,17 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793169656.5261488
+        "fetched_at": 1793176543.5157716
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169653.9432786,
+      "last_success": 1793176536.885977,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176419.5252757,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137286.5424266
     },
     "de_de:1343845001": {
@@ -92,17 +92,17 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793169659.313784
+        "fetched_at": 1793176546.3218896
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169656.530637,
+      "last_success": 1793176543.5200753,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176445.5926723,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137287.8812976
     },
     "de_de:1343794001": {
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793169666.595328
+        "fetched_at": 1793176548.9110687
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169664.249741,
+      "last_success": 1793176546.3268762,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176475.5409708,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137293.979792
     },
     "sr_rs:1349627001": {
@@ -206,17 +206,17 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793169668.9255824
+        "fetched_at": 1793176551.4977741
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793169666.6313925,
+      "last_success": 1793176548.914952,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793176477.5144343,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793137295.842755
     }
   },
