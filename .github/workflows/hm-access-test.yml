@@ -191,7 +191,7 @@ jobs:
           from urllib.error import URLError
           from urllib.request import urlopen
 
-          deadline = time.monotonic() + 30
+          deadline = time.monotonic() + 60
           while time.monotonic() < deadline:
               try:
                   with urlopen("http://127.0.0.1:9222/json/version", timeout=1) as response:
@@ -206,7 +206,7 @@ jobs:
               log = Path(os.environ["RUNNER_TEMP"]) / "hm-chrome.log"
               if log.exists():
                   print(log.read_text(errors="replace")[-6000:])
-              raise SystemExit("Chrome did not become ready within 30 seconds.")
+              raise SystemExit("Chrome did not become ready within 60 seconds.")
           PY
 
           # Run one cycle with bounded retries, then stop.
