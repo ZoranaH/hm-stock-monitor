@@ -19,10 +19,11 @@
       "last_success": 1793180805.8246543,
       "last_available": [],
       "failures": 3,
-      "retry_at": 1793191957.2352557,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "retry_at": 1793192560.488457,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 3
+      "last_attempt_count": 2,
+      "pending_attempts": 2
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -50,10 +51,11 @@
       "last_success": 1793180745.8258853,
       "last_available": [],
       "failures": 3,
-      "retry_at": 1793191959.5395317,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
-      "error_alert_at": 1793137284.1095011
+      "retry_at": 1793192468.8413832,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "last_attempt_count": 1,
+      "error_alert_at": 1793137284.1095011,
+      "pending_attempts": 1
     },
     "ro_ro:1349627001": {
       "metadata": {
@@ -75,12 +77,11 @@
       "initialized": true,
       "last_success": 1793181377.808021,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793192122.7249408,
+      "failures": 4,
+      "retry_at": 1793195825.5577295,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
-      "error_alert_at": 1793137286.5424266,
-      "pending_attempts": 2
+      "last_attempt_count": 3,
+      "error_alert_at": 1793137286.5424266
     },
     "de_de:1343845001": {
       "metadata": {
@@ -100,12 +101,11 @@
       "initialized": true,
       "last_success": 1793181389.933241,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793192153.6235657,
+      "failures": 4,
+      "retry_at": 1793195856.1354961,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
-      "error_alert_at": 1793137287.8812976,
-      "pending_attempts": 2
+      "last_attempt_count": 3,
+      "error_alert_at": 1793137287.8812976
     },
     "de_de:1343794001": {
       "metadata": {
@@ -132,12 +132,11 @@
       "initialized": true,
       "last_success": 1793181393.335472,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793192184.360225,
+      "failures": 4,
+      "retry_at": 1793195886.8228767,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
-      "error_alert_at": 1793137289.8842378,
-      "pending_attempts": 2
+      "last_attempt_count": 3,
+      "error_alert_at": 1793137289.8842378
     },
     "de_de:1349627001": {
       "metadata": {
@@ -191,12 +190,11 @@
       "initialized": true,
       "last_success": 1793181398.3425288,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793192061.450454,
+      "failures": 4,
+      "retry_at": 1793196039.3485534,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793137293.979792,
-      "pending_attempts": 1
+      "last_attempt_count": 3,
+      "error_alert_at": 1793137293.979792
     },
     "sr_rs:1349627001": {
       "metadata": {
@@ -218,22 +216,17 @@
       "initialized": true,
       "last_success": 1793181400.8513775,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793192091.9056644,
+      "failures": 4,
+      "retry_at": 1793196069.8056686,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793137295.842755,
-      "pending_attempts": 1
+      "last_attempt_count": 3,
+      "error_alert_at": 1793137295.842755
     }
   },
   "heartbeat_at": 1793187343.1459775,
   "access_alert_at": 1793096773.8046324,
   "pending_checks": [
-    "ro_ro:1349627001",
-    "de_de:1343845001",
-    "de_de:1343794001",
-    "de_de:1349627001",
-    "sr_rs:1343794001",
-    "sr_rs:1349627001"
+    "ro_ro:1343845001",
+    "ro_ro:1343794001"
   ]
 }
