@@ -65,6 +65,33 @@ class NextDataParser(HTMLParser):
             self.parts.append(data)
 
 
+class AccessPageParser(HTMLParser):
+    """Recognize an explicit denial heading, not words inside product scripts."""
+
+    def __init__(self):
+        super().__init__()
+        self.heading = None
+        self.parts = []
+        self.denied = False
+        self.has_product_data = False
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "script" and dict(attrs).get("id") == "__NEXT_DATA__":
+            self.has_product_data = True
+        if tag in {"title", "h1"}:
+            self.heading = tag
+            self.parts = []
+
+    def handle_data(self, data):
+        if self.heading:
+            self.parts.append(data)
+
+    def handle_endtag(self, tag):
+        if tag == self.heading:
+            self.denied |= " ".join("".join(self.parts).split()).casefold() == "access denied"
+            self.heading = None
+
+
 @dataclass(frozen=True)
 class Watch:
     article: str
@@ -346,6 +373,14 @@ class BrowserClient:
             actual = urlsplit(self.page.url)
             if (actual.scheme, actual.hostname, actual.path) != (expected.scheme, expected.hostname, expected.path):
                 raise MonitorError("Browser product page redirected; item may not be listed in this country.")
+            access_page = AccessPageParser()
+            access_page.feed(self.page.content())
+            if access_page.denied and not access_page.has_product_data:
+                raise MonitorError(
+                    f"Browser product page: HTTP {response.status} with an Access Denied heading; stock is unknown.",
+                    retry_delay(response.headers.get("retry-after")),
+                    blocked=True,
+                )
             stage = "product data script"
             self.page.locator("script#__NEXT_DATA__").wait_for(state="attached")
             stage = "stock data"

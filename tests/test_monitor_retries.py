@@ -296,6 +296,42 @@ class RetryTests(unittest.TestCase):
 
 
 class TransportTests(unittest.TestCase):
+    def test_http_200_denial_does_not_wait_for_missing_product_data(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+        client.pending = {}
+        client.last_navigation = 0
+        client.page = Mock()
+        client.page.url = watches[0].url
+        client.page.goto.return_value = SimpleNamespace(status=200, headers={"retry-after": "120"})
+        client.page.content.return_value = "<title>Access Denied</title><h1>Access Denied</h1>private-body"
+        client.timeout_error = TimeoutError
+        client.browser_error = OSError
+        with self.assertRaises(monitor.MonitorError) as caught:
+            client.metadata(watches[0])
+        self.assertTrue(caught.exception.blocked)
+        self.assertFalse(caught.exception.rate_limited)
+        self.assertEqual(caught.exception.retry_after, 120)
+        self.assertNotIn("private", str(caught.exception))
+        client.page.locator.assert_not_called()
+        client.page.goto.assert_called_once()
+        client.page.remove_listener.assert_called_once()
+        self.assertEqual(client.pending, {})
+
+    def test_denial_parser_ignores_script_text_comments_and_product_pages(self):
+        cases = [
+            ('<title>Product</title><script>"<h1>Access Denied</h1>"</script>', False),
+            ('<!-- <h1>Access Denied</h1> -->', False),
+            ('<h1> Access <span>Denied</span> </h1>', True),
+            ('<h1>Access Denied</h1><script id="__NEXT_DATA__">{}</script>', False),
+            ('<title>Loading...</title>', False),
+        ]
+        for html, expected in cases:
+            with self.subTest(html=html):
+                parser = monitor.AccessPageParser()
+                parser.feed(html)
+                self.assertEqual(parser.denied and not parser.has_product_data, expected)
+
     def test_product_script_timeout_reports_safe_page_markers(self):
         _, watches = monitor.load_config(monitor.BASE / "config.json")
         watch = watches[0]
@@ -364,6 +400,7 @@ class TransportTests(unittest.TestCase):
         client.pending = {}
         client.last_navigation = 0
         client.page = Mock()
+        client.page.content.return_value = ""
         client.page.url = watch.url
         client.timeout_error = TimeoutError
         client.browser_error = OSError
