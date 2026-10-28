@@ -18,11 +18,11 @@
       "initialized": true,
       "last_success": 1793169646.3934526,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 1793170279.511219,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "failures": 1,
+      "retry_at": 1793172683.8566515,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 2
+      "last_attempt_count": 3
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -50,8 +50,8 @@
       "last_success": 1793169651.3791943,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793170310.1458175,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 1793170914.76918,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 2,
       "error_alert_at": 1793137284.1095011
     },
@@ -75,10 +75,10 @@
       "initialized": true,
       "last_success": 1793169653.9432786,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 1793170545.6727161,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
+      "failures": 1,
+      "retry_at": 1793172656.4360285,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "last_attempt_count": 3,
       "error_alert_at": 1793137286.5424266
     },
     "de_de:1343845001": {
@@ -99,10 +99,10 @@
       "initialized": true,
       "last_success": 1793169656.530637,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 1793170576.8837433,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
+      "failures": 1,
+      "retry_at": 1793172658.3928366,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "last_attempt_count": 3,
       "error_alert_at": 1793137287.8812976
     },
     "de_de:1343794001": {
@@ -187,10 +187,10 @@
       "initialized": true,
       "last_success": 1793169664.249741,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 1793170484.4011037,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
+      "failures": 1,
+      "retry_at": 1793172660.2501976,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "last_attempt_count": 3,
       "error_alert_at": 1793137293.979792
     },
     "sr_rs:1349627001": {
@@ -213,21 +213,16 @@
       "initialized": true,
       "last_success": 1793169666.6313925,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 1793170514.92433,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
+      "failures": 1,
+      "retry_at": 1793172662.3465817,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "last_attempt_count": 3,
       "error_alert_at": 1793137295.842755
     }
   },
   "heartbeat_at": 1793100672.8546824,
   "access_alert_at": 1793096773.8046324,
   "pending_checks": [
-    "ro_ro:1349627001",
-    "de_de:1343845001",
-    "de_de:1343794001",
-    "de_de:1349627001",
-    "sr_rs:1343794001",
-    "sr_rs:1349627001"
+    "ro_ro:1343794001"
   ]
 }
