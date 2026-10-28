@@ -380,7 +380,7 @@ class BrowserClient:
 
     def log_refusal(self, response, watch):
         """Classify the response already received without logging cookies or HTML."""
-        if response.status not in {403, 429}:
+        if response.status not in {403, 429} and not 500 <= response.status <= 599:
             return
         page_type = "unclassified refusal"
         try:
@@ -391,6 +391,8 @@ class BrowserClient:
                 page_type = "access denied page"
             elif "too many requests" in body:
                 page_type = "rate limit page"
+            elif "service unavailable" in body:
+                page_type = "service unavailable page"
         except self.browser_error:
             page_type = "response body unavailable"
         server = re.sub(r"[^A-Za-z0-9 ._/-]", "?", response.headers.get("server", "unspecified"))[:80]

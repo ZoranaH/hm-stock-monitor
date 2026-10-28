@@ -298,7 +298,7 @@ class RetryTests(unittest.TestCase):
 class TransportTests(unittest.TestCase):
     def test_browser_product_403_and_429_have_different_retry_scope(self):
         _, watches = monitor.load_config(monitor.BASE / "config.json")
-        for status in [403, 429]:
+        for status in [403, 429, 503]:
             with self.subTest(status=status):
                 client = monitor.BrowserClient.__new__(monitor.BrowserClient)
                 client.pending = {}
@@ -403,6 +403,22 @@ class TransportTests(unittest.TestCase):
         with self.assertLogs(monitor.LOG, level="WARNING") as logs:
             client.log_refusal(response, watches[0])
         self.assertIn("type=response body unavailable", "\n".join(logs.output))
+
+    def test_503_diagnostics_classify_without_exposing_response_content(self):
+        _, watches = monitor.load_config(monitor.BASE / "config.json")
+        client = monitor.BrowserClient.__new__(monitor.BrowserClient)
+        client.browser_error = OSError
+        response = SimpleNamespace(
+            status=503,
+            headers={"server": "Example-Edge", "set-cookie": "private-cookie", "retry-after": "120"},
+            text=lambda: "<h1>Service Unavailable</h1> private-body",
+        )
+        with self.assertLogs(monitor.LOG, level="WARNING") as logs:
+            client.log_refusal(response, watches[0])
+        output = "\n".join(logs.output)
+        self.assertIn("HTTP 503", output)
+        self.assertIn("type=service unavailable page; Retry-After=120s", output)
+        self.assertNotIn("private", output)
 
     def test_original_config_gets_retry_defaults(self):
         with tempfile.TemporaryDirectory() as directory:
