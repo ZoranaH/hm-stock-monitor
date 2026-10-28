@@ -649,6 +649,7 @@ def migrate_retry_state(state):
 
 def cool_down_watch(notifier, watch, record, settings, error, attempts):
     """Apply an item-only cooldown after its attempts have been exhausted."""
+    record.pop("pending_attempts", None)
     failures = record.get("failures", 0) + 1
     # Repeated failed cycles back off further; a successful check resets failures.
     # Bound the exponent so a long-running failure cannot create a huge integer.
@@ -701,10 +702,15 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
     pending = []
     cooling_down = set()
     records = state.setdefault("watches", {})
+    max_attempts = 1 if dry_run else settings["attempts_per_item"]
     for key in ordered_keys:
         if key not in by_key:
             continue
         record = records.get(key, {})
+        # Upgrade unfinished work saved by older versions without resetting its
+        # attempts. Keep the count even if this run skips a short retry delay.
+        if not dry_run and key in previous_order and record.get("last_error"):
+            record.setdefault("pending_attempts", record.get("last_attempt_count", 0))
         if not dry_run and time.time() < record.get("retry_at", 0):
             cooling_down.add(key)
             LOG.info(
@@ -714,12 +720,16 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
             continue
         pending.append(by_key[key])
 
-    attempts = {watch.key: 0 for watch in pending}
+    attempts = {
+        watch.key: 0 if dry_run else min(
+            max_attempts - 1, max(0, records.get(watch.key, {}).get("pending_attempts", 0))
+        ) for watch in pending
+    }
+    attempted_this_run = set()
     retry_at = {watch.key: 0 for watch in pending}
     succeeded = set()
     failed = set()
     deadline = time.monotonic() + settings["cycle_budget_seconds"]
-    max_attempts = 1 if dry_run else settings["attempts_per_item"]
 
     def save_progress():
         if not dry_run:
@@ -739,6 +749,7 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
                 continue
 
             record = records.get(watch.key, {}) if dry_run else records.setdefault(watch.key, {})
+            attempted_this_run.add(watch.key)
             attempts[watch.key] += 1
             LOG.info(
                 "%s | %s | attempt %s/%s",
@@ -765,6 +776,7 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
                     record.update({
                         "last_error": str(error),
                         "last_attempt_count": attempts[watch.key],
+                        "pending_attempts": attempts[watch.key],
                         "retry_at": retry_at[watch.key],
                     })
                 if attempts[watch.key] >= max_attempts:
@@ -778,6 +790,7 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
                 pending.remove(watch)
                 succeeded.add(watch.key)
                 if not dry_run:
+                    record.pop("pending_attempts", None)
                     record["last_attempt_count"] = attempts[watch.key]
             save_progress()
 
@@ -798,7 +811,7 @@ def run_cycle(client, notifier, watches, state, settings, state_path, dry_run):
 
     save_progress()
     errors = len(watches) - len(succeeded)
-    attempted = sum(count > 0 for count in attempts.values())
+    attempted = len(attempted_this_run)
     LOG.info(
         "Cycle summary: %s/%s items attempted; %s succeeded; "
         "%s failed after all attempts; %s skipped for cooldown; "

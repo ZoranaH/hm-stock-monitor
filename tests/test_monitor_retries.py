@@ -94,6 +94,66 @@ class RetryTests(unittest.TestCase):
         self.assertTrue(all(self.counts[w.key] == 1 for w in self.watches[1:]))
         self.assertEqual(self.state["watches"][first]["retry_at"], 0)
 
+    def test_slow_checks_retain_attempts_across_budget_limited_restarts(self):
+        self.settings.update({"cycle_budget_seconds": 90, "retry_delay_seconds": 60,
+                              "failure_cooldown_seconds": 3600})
+        def slow_failure(watch, attempt):
+            self.clock.now += 31
+            return monitor.MonitorError("timeout")
+        self.behaviour = slow_failure
+        for _ in range(10):
+            self.run_cycle()
+            self.state = json.loads(self.state_path.read_text())
+            if all(self.state["watches"].get(w.key, {}).get("failures") == 1 for w in self.watches):
+                break
+            self.clock.now += 60
+        self.assertEqual([self.counts[w.key] for w in self.watches], [3] * 8)
+        self.assertEqual(self.state["pending_checks"], [])
+        for record in self.state["watches"].values():
+            self.assertEqual(record["failures"], 1)
+            self.assertNotIn("pending_attempts", record)
+
+    def test_pending_attempt_count_survives_a_skipped_retry_run(self):
+        self.watches = self.watches[:1]
+        self.settings.update({"cycle_budget_seconds": 1, "retry_delay_seconds": 60})
+        self.behaviour = lambda watch, attempt: monitor.MonitorError("timeout")
+        self.run_cycle()
+        record = self.state["watches"][self.watches[0].key]
+        self.assertEqual(record["pending_attempts"], 1)
+        self.state = json.loads(self.state_path.read_text())
+        self.run_cycle()  # Short saved retry delay is still active.
+        self.state = json.loads(self.state_path.read_text())
+        self.clock.now += 60
+        self.run_cycle()
+        self.clock.now += 60
+        self.run_cycle()
+        self.assertEqual(self.counts[self.watches[0].key], 3)
+        self.assertEqual(self.state["watches"][self.watches[0].key]["failures"], 1)
+
+    def test_legacy_pending_attempts_resume_without_erasing_alert_history(self):
+        watch = self.watches[0]
+        self.state = {"pending_checks": [watch.key], "watches": {watch.key: {
+            "last_attempt_count": 2, "last_error": "timeout", "announced": ["XS"],
+        }}}
+        self.behaviour = lambda w, attempt: monitor.MonitorError("timeout") if w == watch else None
+        self.run_cycle()
+        record = self.state["watches"][watch.key]
+        self.assertEqual(self.counts[watch.key], 1)
+        self.assertEqual(record["last_attempt_count"], 3)
+        self.assertEqual(record["failures"], 1)
+        self.assertEqual(record["announced"], ["XS"])
+
+    def test_success_clears_resumed_attempt_count(self):
+        watch = self.watches[0]
+        self.state = {"watches": {watch.key: {
+            "pending_attempts": 2, "last_error": "timeout", "retry_at": 0,
+        }}}
+        self.run_cycle()
+        self.assertNotIn("pending_attempts", self.state["watches"][watch.key])
+        self.behaviour = lambda w, attempt: monitor.MonitorError("timeout") if w == watch else None
+        self.run_cycle()
+        self.assertEqual(self.counts[watch.key], 4)  # One success, then three fresh attempts.
+
     def test_persistent_403_cools_only_failed_item_after_three_attempts(self):
         first = self.watches[0].key
         self.behaviour = lambda watch, attempt: (

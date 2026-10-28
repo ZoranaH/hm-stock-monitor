@@ -13,7 +13,7 @@ Each cycle checks all eligible items before retrying failures. The defaults are:
 
 | Setting | Default | Meaning |
 | --- | --- | --- |
-| `attempts_per_item` | 3 | Initial check plus up to two retries per cycle |
+| `attempts_per_item` | 3 | Initial check plus up to two retries, continued across runs if interrupted |
 | `retry_delay_seconds` | 60 | Minimum delay before retrying the same item |
 | `failure_cooldown_seconds` | 1800 | Initial item-only cooldown after all attempts fail |
 | `max_failure_cooldown_seconds` | 3600 | Maximum local cooldown after consecutive failed cycles |
@@ -44,6 +44,12 @@ wait exceeds the remaining cycle budget, it is saved for a later run. Items in
 cooldown are skipped until due. Unfinished checks are saved and prioritised on
 the next run, with unattempted items first. A check already in progress may
 finish after the cycle budget; the workflow retains its ten-minute job limit.
+
+Attempt counts for unfinished items persist across workflow runs, including a
+run that only waits for the saved retry deadline. Slow pages cannot restart the
+three-attempt allowance on every dispatch. A successful check or an exhausted
+attempt allowance clears that pending count. Existing unfinished checks migrate
+using their saved attempt counts; stock and sent-alert history are preserved.
 
 On upgrade, the old global 403 pause is removed automatically while existing
 item retry deadlines, stock data and sent-alert history remain. An old 429
