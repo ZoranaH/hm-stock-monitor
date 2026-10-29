@@ -187,12 +187,11 @@
       "initialized": true,
       "last_success": 1793270455.0842514,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793273793.1168091,
+      "failures": 2,
+      "retry_at": 1793277672.1843305,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
-      "error_alert_at": 1793263385.7462637,
-      "pending_attempts": 2
+      "last_attempt_count": 3,
+      "error_alert_at": 1793263385.7462637
     },
     "sr_rs:1349627001": {
       "metadata": {
@@ -214,12 +213,11 @@
       "initialized": true,
       "last_success": 1793270457.4613323,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793273823.5029607,
+      "failures": 2,
+      "retry_at": 1793277702.5461428,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 2,
-      "error_alert_at": 1793263387.7472932,
-      "pending_attempts": 2
+      "last_attempt_count": 3,
+      "error_alert_at": 1793263387.7472932
     }
   },
   "heartbeat_at": 1793273764.024619,
