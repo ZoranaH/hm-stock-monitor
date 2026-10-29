@@ -18,8 +18,8 @@
       "initialized": true,
       "last_success": 1793256348.8462543,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1793275083.9646442,
+      "failures": 6,
+      "retry_at": 1793279080.356885,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "error_alert_at": 1793263145.297344,
       "last_attempt_count": 3
