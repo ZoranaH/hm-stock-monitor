@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793278257.1160672
+        "fetched_at": 1793278552.6733305
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793278249.9263804,
+      "last_success": 1793278541.770978,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793278260.4880636
+        "fetched_at": 1793278555.6944392
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793278257.121422,
+      "last_success": 1793278552.6789818,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -149,12 +149,12 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793278263.192841
+        "fetched_at": 1793278558.4421463
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793278260.4958875,
+      "last_success": 1793278555.7002513,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793278266.12672
+        "fetched_at": 1793278561.1720152
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793278263.1973982,
+      "last_success": 1793278558.452694,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -206,12 +206,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793278268.9213197
+        "fetched_at": 1793278563.8042414
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793278266.1309993,
+      "last_success": 1793278561.176793,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
