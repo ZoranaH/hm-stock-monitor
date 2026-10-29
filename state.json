@@ -68,16 +68,16 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793288151.1819508
+        "fetched_at": 1793294922.3211837
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793288148.3216295,
+      "last_success": 1793294918.5300062,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793294660.4898605,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "last_attempt_count": 3,
       "error_alert_at": 1793263176.2650099
     },
@@ -92,17 +92,17 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793288154.5004654
+        "fetched_at": 1793294862.987231
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793288151.1856928,
+      "last_success": 1793294858.530908,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793294691.3993466,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
       "error_alert_at": 1793263379.9166536
     },
     "de_de:1343794001": {
