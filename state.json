@@ -75,8 +75,8 @@
       "initialized": true,
       "last_success": 1793288148.3216295,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793290786.5353713,
+      "failures": 2,
+      "retry_at": 1793294660.4898605,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 3,
       "error_alert_at": 1793263176.2650099
@@ -99,8 +99,8 @@
       "initialized": true,
       "last_success": 1793288151.1856928,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793290817.1992376,
+      "failures": 2,
+      "retry_at": 1793294691.3993466,
       "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 3,
       "error_alert_at": 1793263379.9166536
