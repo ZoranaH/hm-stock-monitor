@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793270447.5058146
+        "fetched_at": 1793277654.6998627
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793270442.5825512,
+      "last_success": 1793277648.1199372,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793277417.693694,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793263376.3672264
     },
     "ro_ro:1349627001": {
@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793270452.6732419
+        "fetched_at": 1793277658.5989423
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793270450.277337,
+      "last_success": 1793277654.705168,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793277448.6834028,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793263381.964403
     },
     "de_de:1349627001": {
@@ -149,17 +149,17 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793270455.079961
+        "fetched_at": 1793277662.330831
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793270452.6877453,
+      "last_success": 1793277658.6059184,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793277479.4409907,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793263383.873037
     },
     "sr_rs:1343794001": {
