@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793277654.6998627
+        "fetched_at": 1793277948.573264
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793277648.1199372,
+      "last_success": 1793277943.220998,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793277658.5989423
+        "fetched_at": 1793277951.6876733
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793277654.705168,
+      "last_success": 1793277948.611556,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -149,12 +149,12 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793277662.330831
+        "fetched_at": 1793277954.4556413
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793277658.6059184,
+      "last_success": 1793277951.738931,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793270457.4577348
+        "fetched_at": 1793277957.7700143
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793270455.0842514,
+      "last_success": 1793277954.4914615,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793277672.1843305,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793263385.7462637
     },
     "sr_rs:1349627001": {
@@ -206,17 +206,17 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793270459.9844174
+        "fetched_at": 1793277961.2054892
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793270457.4613323,
+      "last_success": 1793277957.803463,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793277702.5461428,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793263387.7472932
     }
   },
