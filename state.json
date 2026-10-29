@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793256358.809935
+        "fetched_at": 1793279146.653689
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793256348.8462543,
+      "last_success": 1793279139.3013577,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1793279080.356885,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793263145.297344,
-      "last_attempt_count": 3
+      "last_attempt_count": 1
     },
     "ro_ro:1343794001": {
       "metadata": {
