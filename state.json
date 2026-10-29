@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793239850.0977175
+        "fetched_at": 1793240212.4841025
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239845.1421046,
+      "last_success": 1793240209.4199743,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 1
+      "last_attempt_count": 2
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793239852.600994
+        "fetched_at": 1793240217.458424
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239850.1025598,
+      "last_success": 1793240214.4742951,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1793137284.1095011
     },
     "ro_ro:1349627001": {
@@ -68,17 +68,17 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793239855.3009062
+        "fetched_at": 1793240219.9415758
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239852.6056838,
+      "last_success": 1793240217.4634469,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1793137286.5424266
     },
     "de_de:1343845001": {
@@ -92,12 +92,12 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793239858.5423937
+        "fetched_at": 1793240160.2564228
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239855.3060153,
+      "last_success": 1793240154.8104398,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793239861.021621
+        "fetched_at": 1793240162.8129675
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239858.5465844,
+      "last_success": 1793240160.279362,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -149,12 +149,12 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793239867.7688026
+        "fetched_at": 1793240165.2335298
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239861.0282927,
+      "last_success": 1793240162.816709,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793239870.5148783
+        "fetched_at": 1793240167.7384284
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239867.786552,
+      "last_success": 1793240165.2367964,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -206,12 +206,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793239875.1896825
+        "fetched_at": 1793240170.0103414
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793239870.6693113,
+      "last_success": 1793240167.742489,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
