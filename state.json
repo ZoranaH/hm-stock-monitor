@@ -19,10 +19,11 @@
       "last_success": 1793256348.8462543,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256979.9507658,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "error_alert_at": 1793134257.7198067,
-      "last_attempt_count": 1
+      "last_attempt_count": 2,
+      "pending_attempts": 2
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -50,10 +51,11 @@
       "last_success": 1793256358.8154788,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
-      "last_attempt_count": 1,
-      "error_alert_at": 1793137284.1095011
+      "retry_at": 1793257010.5685666,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "last_attempt_count": 2,
+      "error_alert_at": 1793137284.1095011,
+      "pending_attempts": 2
     },
     "ro_ro:1349627001": {
       "metadata": {
@@ -76,10 +78,11 @@
       "last_success": 1793256361.5943444,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256796.5221753,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
-      "error_alert_at": 1793137286.5424266
+      "error_alert_at": 1793137286.5424266,
+      "pending_attempts": 1
     },
     "de_de:1343845001": {
       "metadata": {
@@ -100,10 +103,11 @@
       "last_success": 1793256364.9712126,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256827.1644678,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
-      "error_alert_at": 1793137287.8812976
+      "error_alert_at": 1793137287.8812976,
+      "pending_attempts": 1
     },
     "de_de:1343794001": {
       "metadata": {
@@ -131,10 +135,11 @@
       "last_success": 1793256368.0818224,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256857.7818673,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
-      "error_alert_at": 1793137289.8842378
+      "error_alert_at": 1793137289.8842378,
+      "pending_attempts": 1
     },
     "de_de:1349627001": {
       "metadata": {
@@ -157,10 +162,11 @@
       "last_success": 1793256371.3953016,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256888.3966627,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
-      "error_alert_at": 1793137291.9361713
+      "error_alert_at": 1793137291.9361713,
+      "pending_attempts": 1
     },
     "sr_rs:1343794001": {
       "metadata": {
@@ -188,10 +194,11 @@
       "last_success": 1793256374.6523938,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256918.8747802,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
-      "error_alert_at": 1793137293.979792
+      "error_alert_at": 1793137293.979792,
+      "pending_attempts": 1
     },
     "sr_rs:1349627001": {
       "metadata": {
@@ -214,13 +221,23 @@
       "last_success": 1793256377.847127,
       "last_available": [],
       "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
+      "retry_at": 1793256949.3217437,
+      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
       "last_attempt_count": 1,
-      "error_alert_at": 1793137295.842755
+      "error_alert_at": 1793137295.842755,
+      "pending_attempts": 1
     }
   },
   "heartbeat_at": 1793187343.1459775,
   "access_alert_at": 1793096773.8046324,
-  "pending_checks": []
+  "pending_checks": [
+    "ro_ro:1343845001",
+    "ro_ro:1343794001",
+    "ro_ro:1349627001",
+    "de_de:1343845001",
+    "de_de:1343794001",
+    "de_de:1349627001",
+    "sr_rs:1343794001",
+    "sr_rs:1349627001"
+  ]
 }
