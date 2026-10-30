@@ -206,12 +206,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793393149.316834
+        "fetched_at": 1793393452.1202004
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793393143.5874386,
+      "last_success": 1793393445.9640622,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
