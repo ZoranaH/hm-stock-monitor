@@ -187,8 +187,8 @@
       "initialized": true,
       "last_success": 1793336150.1382852,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1793354851.2786837,
+      "failures": 6,
+      "retry_at": 1793358761.5957098,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793351251.65279
@@ -213,8 +213,8 @@
       "initialized": true,
       "last_success": 1793336153.1165657,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1793354856.240817,
+      "failures": 6,
+      "retry_at": 1793358763.55778,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793351256.528038
