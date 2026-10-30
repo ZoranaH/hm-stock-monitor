@@ -68,17 +68,17 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793336141.2984235
+        "fetched_at": 1793377875.7884924
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793336138.237992,
+      "last_success": 1793377866.2307298,
       "last_available": [],
-      "failures": 11,
-      "retry_at": 1793377666.1779513,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793350696.436486
     },
     "de_de:1343845001": {
@@ -92,17 +92,17 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793336144.427121
+        "fetched_at": 1793377879.2540824
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793336141.3038967,
+      "last_success": 1793377875.7939088,
       "last_available": [],
-      "failures": 11,
-      "retry_at": 1793377668.2283428,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793350698.8844812
     },
     "de_de:1343794001": {
