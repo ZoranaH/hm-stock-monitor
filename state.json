@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793440926.6092746
+        "fetched_at": 1793443307.5441904
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793440922.7086442,
+      "last_success": 1793443302.8916848,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793443056.0507615,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793350988.4963398,
-      "last_attempt_count": 3
+      "last_attempt_count": 2
     },
     "ro_ro:1343794001": {
       "metadata": {
