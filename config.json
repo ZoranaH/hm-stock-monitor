@@ -32,6 +32,12 @@
       "name": "Hourglass wool-blend coat — black",
       "article": "1349627001",
       "sizes": ["XS"]
+    },
+    {
+      "name": "Tie-detail wool trousers — black",
+      "article": "1343787001",
+      "sizes": ["34"],
+      "countries": ["ro_ro", "de_de", "sr_rs"]
     }
   ]
 }
