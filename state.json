@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793475123.8965185
+        "fetched_at": 1793477448.046171
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793475118.898794,
+      "last_success": 1793477441.5187824,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793477284.887396,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793450259.4214766,
-      "last_attempt_count": 3
+      "last_attempt_count": 1
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -237,12 +237,12 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793477151.7892237
+        "fetched_at": 1793477451.0776427
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793477144.3583493,
+      "last_success": 1793477448.051088,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -267,12 +267,12 @@
         "name": "Wollhose mit Bindedetail",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793477155.1271715
+        "fetched_at": 1793477454.5672076
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793477151.7944381,
+      "last_success": 1793477451.0823183,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -297,12 +297,12 @@
         "name": "Vunene pantalone s trakama za vezivanje",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793477158.0453565
+        "fetched_at": 1793477457.7666001
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793477155.1318374,
+      "last_success": 1793477454.5727062,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
