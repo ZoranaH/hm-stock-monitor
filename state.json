@@ -237,12 +237,12 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793476867.7741396
+        "fetched_at": 1793477151.7892237
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793476861.0223732,
+      "last_success": 1793477144.3583493,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -267,12 +267,12 @@
         "name": "Wollhose mit Bindedetail",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793476871.409883
+        "fetched_at": 1793477155.1271715
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793476867.7792501,
+      "last_success": 1793477151.7944381,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -297,12 +297,12 @@
         "name": "Vunene pantalone s trakama za vezivanje",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793476875.3223214
+        "fetched_at": 1793477158.0453565
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793476871.4217649,
+      "last_success": 1793477155.1318374,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
