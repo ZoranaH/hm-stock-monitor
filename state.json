@@ -218,6 +218,96 @@
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793441272.086896
+    },
+    "ro_ro:1343787001": {
+      "metadata": {
+        "sizes": {
+          "32": "1343787001001",
+          "34": "1343787001002",
+          "36": "1343787001003",
+          "38": "1343787001004",
+          "40": "1343787001005",
+          "42": "1343787001006",
+          "44": "1343787001007",
+          "46": "1343787001008",
+          "48": "1343787001009",
+          "50": "1343787001010",
+          "52": "1343787001011"
+        },
+        "name": "Pantaloni din lână cu panglici",
+        "colour": "Negru",
+        "coming_soon": false,
+        "fetched_at": 1793476867.7741396
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1793476861.0223732,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1
+    },
+    "de_de:1343787001": {
+      "metadata": {
+        "sizes": {
+          "32": "1343787001001",
+          "34": "1343787001002",
+          "36": "1343787001003",
+          "38": "1343787001004",
+          "40": "1343787001005",
+          "42": "1343787001006",
+          "44": "1343787001007",
+          "46": "1343787001008",
+          "48": "1343787001009",
+          "50": "1343787001010",
+          "52": "1343787001011"
+        },
+        "name": "Wollhose mit Bindedetail",
+        "colour": "Schwarz",
+        "coming_soon": false,
+        "fetched_at": 1793476871.409883
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1793476867.7792501,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1
+    },
+    "sr_rs:1343787001": {
+      "metadata": {
+        "sizes": {
+          "32": "1343787001001",
+          "34": "1343787001002",
+          "36": "1343787001003",
+          "38": "1343787001004",
+          "40": "1343787001005",
+          "42": "1343787001006",
+          "44": "1343787001007",
+          "46": "1343787001008",
+          "48": "1343787001009",
+          "50": "1343787001010",
+          "52": "1343787001011"
+        },
+        "name": "Vunene pantalone s trakama za vezivanje",
+        "colour": "Crna",
+        "coming_soon": false,
+        "fetched_at": 1793476875.3223214
+      },
+      "announced": [],
+      "misses": {},
+      "initialized": true,
+      "last_success": 1793476871.4217649,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1
     }
   },
   "heartbeat_at": 1793447143.2557025,
