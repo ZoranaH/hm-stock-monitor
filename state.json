@@ -11,12 +11,12 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793572542.5151234
+        "fetched_at": 1793572849.5849185
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793572536.5103803,
+      "last_success": 1793572841.9619966,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793572545.7286177
+        "fetched_at": 1793572853.474007
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793572542.5203507,
+      "last_success": 1793572849.6122947,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
