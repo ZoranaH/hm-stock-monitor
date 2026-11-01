@@ -92,17 +92,17 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793547339.0438054
+        "fetched_at": 1793561462.784804
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793547332.8651195,
+      "last_success": 1793561455.4170003,
       "last_available": [],
-      "failures": 4,
-      "retry_at": 1793561253.0414188,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793539373.199438
     },
     "de_de:1343794001": {
@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793547342.6399872
+        "fetched_at": 1793561466.2331471
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793547339.1288726,
+      "last_success": 1793561462.789132,
       "last_available": [],
-      "failures": 4,
-      "retry_at": 1793561256.519819,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793539375.2224882
     },
     "de_de:1349627001": {
