@@ -75,8 +75,8 @@
       "initialized": true,
       "last_success": 1793510441.917372,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512653.5876133,
+      "failures": 2,
+      "retry_at": 1793516584.8474734,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793441260.998535
@@ -99,8 +99,8 @@
       "initialized": true,
       "last_success": 1793510449.7247772,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512657.4484327,
+      "failures": 2,
+      "retry_at": 1793516594.701892,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793441264.3189921
@@ -130,8 +130,8 @@
       "initialized": true,
       "last_success": 1793510452.6163385,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512659.4109905,
+      "failures": 2,
+      "retry_at": 1793516596.7004597,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793441266.208455
@@ -156,8 +156,8 @@
       "initialized": true,
       "last_success": 1793510455.193309,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512661.4469151,
+      "failures": 2,
+      "retry_at": 1793516598.7036018,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793441268.373
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793510463.3362448
+        "fetched_at": 1793512884.342791
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793510460.3555732,
+      "last_success": 1793512878.1107535,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512665.372,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793441270.0415184
     },
     "sr_rs:1349627001": {
@@ -213,8 +213,8 @@
       "initialized": true,
       "last_success": 1793510463.3544312,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512667.40845,
+      "failures": 2,
+      "retry_at": 1793516605.5347955,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793441272.086896
@@ -244,8 +244,8 @@
       "initialized": true,
       "last_success": 1793510446.7851741,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512655.4902077,
+      "failures": 2,
+      "retry_at": 1793516592.7252154,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3
     },
@@ -274,8 +274,8 @@
       "initialized": true,
       "last_success": 1793510457.7552161,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512663.444743,
+      "failures": 2,
+      "retry_at": 1793516600.9155169,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3
     },
@@ -304,8 +304,8 @@
       "initialized": true,
       "last_success": 1793510465.664631,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793512669.33633,
+      "failures": 2,
+      "retry_at": 1793516607.9399555,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3
     }
