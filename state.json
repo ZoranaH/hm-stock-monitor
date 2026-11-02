@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793572849.5849185
+        "fetched_at": 1793579145.5174267
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793572841.9619966,
+      "last_success": 1793579138.2150583,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793578966.886484,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793544163.3920887,
-      "last_attempt_count": 3
+      "last_attempt_count": 1
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793572853.474007
+        "fetched_at": 1793579149.0731728
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793572849.6122947,
+      "last_success": 1793579145.5221725,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793578968.3260016,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793530659.2342927
     },
     "ro_ro:1349627001": {
