@@ -49,11 +49,11 @@
       "initialized": true,
       "last_success": 1793614253.3087716,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620393.555428,
+      "failures": 3,
+      "retry_at": 1793624256.9117372,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
-      "error_alert_at": 1793530659.2342927
+      "error_alert_at": 1793620657.3510153
     },
     "ro_ro:1349627001": {
       "metadata": {
@@ -75,8 +75,8 @@
       "initialized": true,
       "last_success": 1793614256.3697777,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620395.550182,
+      "failures": 3,
+      "retry_at": 1793624258.857176,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793539369.378495
@@ -99,8 +99,8 @@
       "initialized": true,
       "last_success": 1793614262.6860008,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620400.010477,
+      "failures": 3,
+      "retry_at": 1793624262.9122822,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793539373.199438
@@ -130,8 +130,8 @@
       "initialized": true,
       "last_success": 1793614265.870029,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620401.7214968,
+      "failures": 3,
+      "retry_at": 1793624264.9056966,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793539375.2224882
@@ -156,8 +156,8 @@
       "initialized": true,
       "last_success": 1793614268.634585,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620403.7304525,
+      "failures": 3,
+      "retry_at": 1793624267.020025,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793539377.2030203
@@ -187,8 +187,8 @@
       "initialized": true,
       "last_success": 1793614274.9422317,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620407.6251354,
+      "failures": 3,
+      "retry_at": 1793624270.7093647,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793539381.1434433
@@ -213,8 +213,8 @@
       "initialized": true,
       "last_success": 1793614277.8665404,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620409.7084434,
+      "failures": 3,
+      "retry_at": 1793624272.7061324,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793539383.1317413
@@ -248,8 +248,8 @@
       "initialized": true,
       "last_success": 1793614259.56754,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620397.5137053,
+      "failures": 3,
+      "retry_at": 1793624260.8767674,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793610487.9024515
@@ -279,8 +279,8 @@
       "initialized": true,
       "last_success": 1793614271.933068,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620405.7259676,
+      "failures": 3,
+      "retry_at": 1793624268.9001338,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793610495.7574563
@@ -310,8 +310,8 @@
       "initialized": true,
       "last_success": 1793614281.0450199,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793620411.60099,
+      "failures": 3,
+      "retry_at": 1793624274.6921854,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793610501.73106
