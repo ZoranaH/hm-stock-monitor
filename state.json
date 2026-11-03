@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793727077.093172
+        "fetched_at": 1793727437.535077
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727069.4007638,
+      "last_success": 1793727434.5899868,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
       "error_alert_at": 1793665375.1827042,
-      "last_attempt_count": 1
+      "last_attempt_count": 2
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793727080.253901
+        "fetched_at": 1793727450.8519013
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727077.1115768,
+      "last_success": 1793727448.356974,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1793620657.3510153
     },
     "ro_ro:1349627001": {
@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793727087.778615
+        "fetched_at": 1793727396.710666
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727084.5531504,
+      "last_success": 1793727393.4892876,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -149,12 +149,12 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793727090.8812053
+        "fetched_at": 1793727399.4269195
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727087.7905889,
+      "last_success": 1793727396.7152834,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793727097.1586785
+        "fetched_at": 1793727405.0043964
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727094.0204163,
+      "last_success": 1793727402.296735,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -206,12 +206,12 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793727100.0517986
+        "fetched_at": 1793727407.69501
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727097.163558,
+      "last_success": 1793727405.0087514,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -237,12 +237,12 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793727084.5485487
+        "fetched_at": 1793727393.3842826
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727080.2582147,
+      "last_success": 1793727388.3585968,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -268,12 +268,12 @@
         "name": "Wollhose mit Bindedetail",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793727094.0130632
+        "fetched_at": 1793727402.2716093
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727090.88554,
+      "last_success": 1793727399.607411,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -299,12 +299,12 @@
         "name": "Vunene pantalone s trakama za vezivanje",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793727103.396296
+        "fetched_at": 1793727410.2438204
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793727100.2515938,
+      "last_success": 1793727407.7205837,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
