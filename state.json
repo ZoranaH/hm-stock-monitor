@@ -68,12 +68,12 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793724948.3145456
+        "fetched_at": 1793725276.649801
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793724941.891976,
+      "last_success": 1793725266.9518518,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -92,12 +92,12 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793724951.8944087
+        "fetched_at": 1793725279.4671898
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793724948.320059,
+      "last_success": 1793725276.6551592,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
