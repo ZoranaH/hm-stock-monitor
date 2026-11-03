@@ -93,19 +93,18 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793683258.1335325
+        "fetched_at": 1793693813.449281
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683254.6439118,
+      "last_success": 1793693809.868777,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693617.003776,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645274.0224082,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645274.0224082
     },
     "de_de:1343794001": {
       "metadata": {
@@ -125,19 +124,18 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793683261.4482224
+        "fetched_at": 1793693816.838526
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683258.1377647,
+      "last_success": 1793693813.454226,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693647.6112814,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645275.9355783,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645275.9355783
     },
     "de_de:1349627001": {
       "metadata": {
@@ -152,19 +150,18 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793683264.6539752
+        "fetched_at": 1793693820.2703571
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683261.4545307,
+      "last_success": 1793693816.8437896,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693678.158347,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645277.889621,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645277.889621
     },
     "sr_rs:1343794001": {
       "metadata": {
@@ -184,19 +181,18 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793683271.4679275
+        "fetched_at": 1793693826.7484283
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683268.2003312,
+      "last_success": 1793693823.5945868,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693740.4282951,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645281.7437744,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645281.7437744
     },
     "sr_rs:1349627001": {
       "metadata": {
@@ -211,19 +207,18 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793683274.9200978
+        "fetched_at": 1793693830.0264125
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683271.472755,
+      "last_success": 1793693826.7528727,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693770.7878716,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645283.8584595,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645283.8584595
     },
     "ro_ro:1343787001": {
       "metadata": {
@@ -243,19 +238,18 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793683254.6381278
+        "fetched_at": 1793693809.8619614
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683247.4114394,
+      "last_success": 1793693803.2442377,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693586.3089988,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793610487.9024515,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793610487.9024515
     },
     "de_de:1343787001": {
       "metadata": {
@@ -275,19 +269,18 @@
         "name": "Wollhose mit Bindedetail",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793683268.1887941
+        "fetched_at": 1793693823.5895083
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683264.6590664,
+      "last_success": 1793693820.2769768,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693709.0713863,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793610495.7574563,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793610495.7574563
     },
     "sr_rs:1343787001": {
       "metadata": {
@@ -307,32 +300,21 @@
         "name": "Vunene pantalone s trakama za vezivanje",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793683278.0963168
+        "fetched_at": 1793693833.375923
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793683274.9250305,
+      "last_success": 1793693830.031802,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1793693801.4457753,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793610501.73106,
-      "pending_attempts": 1
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793610501.73106
     }
   },
   "heartbeat_at": 1793619953.9850123,
   "access_alert_at": 1793096773.8046324,
-  "pending_checks": [
-    "ro_ro:1349627001",
-    "ro_ro:1343787001",
-    "de_de:1343845001",
-    "de_de:1343794001",
-    "de_de:1349627001",
-    "de_de:1343787001",
-    "sr_rs:1343794001",
-    "sr_rs:1349627001",
-    "sr_rs:1343787001"
-  ]
+  "pending_checks": []
 }
