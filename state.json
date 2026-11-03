@@ -68,17 +68,17 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793698914.031236
+        "fetched_at": 1793699154.8482537
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793698910.0236187,
+      "last_success": 1793699148.5648243,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 2,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645269.8340507
     },
     "de_de:1343845001": {
