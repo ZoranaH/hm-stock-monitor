@@ -11,19 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793750482.8477902
+        "fetched_at": 1793751164.7477746
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750470.5480466,
+      "last_success": 1793751161.5980647,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793750854.63955,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793665375.1827042,
-      "last_attempt_count": 1,
-      "pending_attempts": 1
+      "last_attempt_count": 3
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -43,19 +42,18 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793750487.9826965
+        "fetched_at": 1793751168.3653944
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750482.945289,
+      "last_success": 1793751164.7531826,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793750885.245309,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793620657.3510153,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 3,
+      "error_alert_at": 1793620657.3510153
     },
     "ro_ro:1349627001": {
       "metadata": {
@@ -70,19 +68,18 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793750491.4737382
+        "fetched_at": 1793751108.7096949
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750487.9885783,
+      "last_success": 1793751102.607061,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793750915.8983252,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645269.8340507,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645269.8340507
     },
     "de_de:1343845001": {
       "metadata": {
@@ -95,19 +92,18 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793750499.3327231
+        "fetched_at": 1793751118.7222896
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750495.2895992,
+      "last_success": 1793751111.9814796,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793750977.0730214,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645274.0224082,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645274.0224082
     },
     "de_de:1343794001": {
       "metadata": {
@@ -127,19 +123,18 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793750503.8247309
+        "fetched_at": 1793751126.083254
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750499.3385801,
+      "last_success": 1793751118.7344468,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793751007.6709113,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645275.9355783,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645275.9355783
     },
     "de_de:1349627001": {
       "metadata": {
@@ -154,19 +149,18 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793750507.2981071
+        "fetched_at": 1793751134.358449
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750503.854115,
+      "last_success": 1793751126.088939,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793751038.1707578,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793645277.889621,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793645277.889621
     },
     "sr_rs:1343794001": {
       "metadata": {
@@ -245,19 +239,18 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793750495.253537
+        "fetched_at": 1793751111.976335
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750491.4788275,
+      "last_success": 1793751108.7161422,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793750946.468432,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793703791.565902,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793703791.565902
     },
     "de_de:1343787001": {
       "metadata": {
@@ -277,19 +270,18 @@
         "name": "Wollhose mit Bindedetail",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793750511.724323
+        "fetched_at": 1793751140.5820687
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750507.3373773,
+      "last_success": 1793751134.3724697,
       "last_available": [],
       "failures": 0,
-      "retry_at": 1793751068.781377,
-      "last_error": "Browser timed out loading product data. Check whether the site opens normally or shows a consent/access page.",
-      "last_attempt_count": 1,
-      "error_alert_at": 1793703799.4472792,
-      "pending_attempts": 1
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
+      "error_alert_at": 1793703799.4472792
     },
     "sr_rs:1343787001": {
       "metadata": {
@@ -309,33 +301,21 @@
         "name": "Vunene pantalone s trakama za vezivanje",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793750523.669739
+        "fetched_at": 1793751159.0678082
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793750520.38957,
+      "last_success": 1793751155.4787753,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1793703805.2897854
     }
   },
   "heartbeat_at": 1793706643.6403046,
   "access_alert_at": 1793096773.8046324,
-  "pending_checks": [
-    "sr_rs:1343787001",
-    "ro_ro:1343845001",
-    "ro_ro:1343794001",
-    "ro_ro:1349627001",
-    "ro_ro:1343787001",
-    "de_de:1343845001",
-    "de_de:1343794001",
-    "de_de:1349627001",
-    "de_de:1343787001",
-    "sr_rs:1343794001",
-    "sr_rs:1349627001"
-  ]
+  "pending_checks": []
 }
