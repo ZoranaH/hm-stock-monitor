@@ -68,12 +68,12 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793795149.9805307
+        "fetched_at": 1793795467.3361092
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793795142.032978,
+      "last_success": 1793795461.9383762,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -237,12 +237,12 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793795153.4615724
+        "fetched_at": 1793795470.2056868
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793795149.9868715,
+      "last_success": 1793795467.3411887,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
