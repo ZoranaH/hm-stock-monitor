@@ -11,18 +11,18 @@
         "name": "Curea îngustă din piele",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793789512.5566115
+        "fetched_at": 1793795739.7117233
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789509.805138,
+      "last_success": 1793795734.080644,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795578.4592886,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
       "error_alert_at": 1793665375.1827042,
-      "last_attempt_count": 3
+      "last_attempt_count": 1
     },
     "ro_ro:1343794001": {
       "metadata": {
@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793789514.948555
+        "fetched_at": 1793795742.4778028
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789512.5603762,
+      "last_success": 1793795739.716297,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795580.4368095,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793620657.3510153
     },
     "ro_ro:1349627001": {
@@ -68,12 +68,12 @@
         "name": "Palton stil clepsidră din amestec de lână",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793795467.3361092
+        "fetched_at": 1793795744.7689247
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793795461.9383762,
+      "last_success": 1793795742.4851916,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -92,17 +92,17 @@
         "name": "Schmaler Ledergürtel",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793789462.3497012
+        "fetched_at": 1793795749.5427942
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789459.5049438,
+      "last_success": 1793795747.0448468,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795590.1295598,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645274.0224082
     },
     "de_de:1343794001": {
@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793789464.6781547
+        "fetched_at": 1793795752.2892897
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789462.3538687,
+      "last_success": 1793795749.5530455,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795592.1974964,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645275.9355783
     },
     "de_de:1349627001": {
@@ -149,17 +149,17 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793789467.473845
+        "fetched_at": 1793795755.6229055
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789464.6823902,
+      "last_success": 1793795752.3008862,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795594.1979272,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645277.889621
     },
     "sr_rs:1343794001": {
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793789474.3249173
+        "fetched_at": 1793795760.8880742
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789470.3804543,
+      "last_success": 1793795758.2940288,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795598.1128755,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645281.7437744
     },
     "sr_rs:1349627001": {
@@ -206,17 +206,17 @@
         "name": "Kaput od mešavine vune s efektom peščanog sata",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793789477.4870052
+        "fetched_at": 1793795763.6560025
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789474.340939,
+      "last_success": 1793795760.891288,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795599.9954903,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645283.8584595
     },
     "ro_ro:1343787001": {
@@ -237,12 +237,12 @@
         "name": "Pantaloni din lână cu panglici",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793795470.2056868
+        "fetched_at": 1793795747.0360029
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793795467.3411887,
+      "last_success": 1793795744.7829304,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -268,17 +268,17 @@
         "name": "Wollhose mit Bindedetail",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793789470.37635
+        "fetched_at": 1793795758.2901134
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789467.4781117,
+      "last_success": 1793795755.6437895,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795596.2137485,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793703799.4472792
     },
     "sr_rs:1343787001": {
@@ -299,17 +299,17 @@
         "name": "Vunene pantalone s trakama za vezivanje",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793789480.0897193
+        "fetched_at": 1793795766.3263028
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793789477.6799464,
+      "last_success": 1793795763.6598876,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1793795601.9974992,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1793703805.2897854
     }
   },
