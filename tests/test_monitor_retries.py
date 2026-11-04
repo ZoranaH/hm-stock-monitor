@@ -82,14 +82,14 @@ class RetryTests(unittest.TestCase):
             self.settings, self.state_path, dry_run,
         )
 
-    def test_all_eight_items_are_checked_before_retrying_first_403(self):
+    def test_all_configured_items_are_checked_before_retrying_first_403(self):
         first = self.watches[0].key
         self.behaviour = lambda watch, attempt: (
             monitor.MonitorError("HTTP 403", blocked=True)
             if watch.key == first and attempt < 3 else None
         )
         self.assertEqual(self.run_cycle(), 0)
-        self.assertEqual([key for key, _ in self.calls[:8]], [w.key for w in self.watches])
+        self.assertEqual([key for key, _ in self.calls[:len(self.watches)]], [w.key for w in self.watches])
         self.assertEqual(self.counts[first], 3)
         self.assertTrue(all(self.counts[w.key] == 1 for w in self.watches[1:]))
         self.assertEqual(self.state["watches"][first]["retry_at"], 0)
@@ -101,13 +101,13 @@ class RetryTests(unittest.TestCase):
             self.clock.now += 31
             return monitor.MonitorError("timeout")
         self.behaviour = slow_failure
-        for _ in range(10):
+        for _ in range(3 * len(self.watches)):
             self.run_cycle()
             self.state = json.loads(self.state_path.read_text())
             if all(self.state["watches"].get(w.key, {}).get("failures") == 1 for w in self.watches):
                 break
             self.clock.now += 60
-        self.assertEqual([self.counts[w.key] for w in self.watches], [3] * 8)
+        self.assertEqual([self.counts[w.key] for w in self.watches], [3] * len(self.watches))
         self.assertEqual(self.state["pending_checks"], [])
         for record in self.state["watches"].values():
             self.assertEqual(record["failures"], 1)
@@ -168,8 +168,8 @@ class RetryTests(unittest.TestCase):
 
     def test_all_items_can_fail_without_starving_later_items(self):
         self.behaviour = lambda watch, attempt: monitor.MonitorError("HTTP 403", blocked=True)
-        self.assertEqual(self.run_cycle(), 8)
-        self.assertEqual(list(self.counts.values()), [3] * 8)
+        self.assertEqual(self.run_cycle(), len(self.watches))
+        self.assertEqual(list(self.counts.values()), [3] * len(self.watches))
         expected_order = [w.key for w in self.watches] * 3
         self.assertEqual([key for key, _ in self.calls], expected_order)
 
@@ -190,7 +190,7 @@ class RetryTests(unittest.TestCase):
         self.clock.now += 300
         self.assertEqual(self.run_cycle(), 1)
         self.assertNotIn(self.watches[0].key, self.counts)
-        self.assertEqual(len(self.counts), 7)
+        self.assertEqual(len(self.counts), len(self.watches) - 1)
         self.clock.now += 300
         self.behaviour = lambda watch, attempt: None
         self.assertEqual(self.run_cycle(), 0)
@@ -203,7 +203,7 @@ class RetryTests(unittest.TestCase):
             if watch.key == first else None
         )
         self.assertEqual(self.run_cycle(), 1)
-        self.assertEqual(len(self.calls), 8)
+        self.assertEqual(len(self.calls), len(self.watches))
         self.assertEqual(self.state["watches"][first]["retry_at"], self.clock.now + 3600)
         self.assertEqual(self.state["pending_checks"], [first])
         self.assertEqual(self.clock.waits, [])
@@ -215,7 +215,7 @@ class RetryTests(unittest.TestCase):
             if watch.key == first and attempt == 1 else None
         )
         self.assertEqual(self.run_cycle(), 0)
-        self.assertEqual(len(self.counts), 8)
+        self.assertEqual(len(self.counts), len(self.watches))
         self.assertTrue(all(when >= 2_000_000_075 for _, when in self.calls[1:]))
 
     def test_long_429_is_persisted_and_unchecked_items_resume_first(self):
@@ -224,13 +224,13 @@ class RetryTests(unittest.TestCase):
             monitor.MonitorError("HTTP 429", retry_after=900, blocked=True, rate_limited=True)
             if watch.key == first and attempt == 1 else None
         )
-        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.run_cycle(), len(self.watches))
         self.assertEqual(len(self.calls), 1)
         self.assertEqual(self.state["hm_retry_at"], self.clock.now + 900)
         self.assertEqual(self.state["pending_checks"][0], self.watches[1].key)
         self.state = json.loads(self.state_path.read_text())
         self.calls.clear()
-        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.run_cycle(), len(self.watches))
         self.assertEqual(self.calls, [])
         self.clock.now += 900
         self.behaviour = lambda watch, attempt: None
@@ -261,7 +261,7 @@ class RetryTests(unittest.TestCase):
             "pause_until": self.clock.now + 3600,
             "watches": {self.watches[0].key: {"last_error": "HTTP 429"}},
         }
-        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.run_cycle(), len(self.watches))
         self.assertEqual(self.calls, [])
         self.assertEqual(self.state["hm_retry_at"], self.clock.now + 3600)
 
@@ -271,7 +271,7 @@ class RetryTests(unittest.TestCase):
             self.clock.now += 31
             return monitor.MonitorError("timeout")
         self.behaviour = slow_failure
-        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.run_cycle(), len(self.watches))
         self.assertEqual(len(self.calls), 1)
         self.state = json.loads(self.state_path.read_text())
         self.calls.clear()
@@ -283,17 +283,17 @@ class RetryTests(unittest.TestCase):
     def test_dry_run_checks_all_items_once_without_saving_or_sending(self):
         self.behaviour = lambda watch, attempt: monitor.MonitorError("HTTP 403", blocked=True)
         original = copy.deepcopy(self.state)
-        self.assertEqual(self.run_cycle(dry_run=True), 8)
-        self.assertEqual(list(self.counts.values()), [1] * 8)
+        self.assertEqual(self.run_cycle(dry_run=True), len(self.watches))
+        self.assertEqual(list(self.counts.values()), [1] * len(self.watches))
         self.assertFalse(self.state_path.exists())
         self.assertEqual(self.state, original)
         self.assertEqual(self.notifier.messages, [])
 
     def test_stop_does_not_claim_unchecked_items_succeeded(self):
         self.clock.stopped = True
-        self.assertEqual(self.run_cycle(), 8)
+        self.assertEqual(self.run_cycle(), len(self.watches))
         self.assertEqual(self.calls, [])
-        self.assertEqual(len(self.state["pending_checks"]), 8)
+        self.assertEqual(len(self.state["pending_checks"]), len(self.watches))
 
     def test_repeated_failures_back_off_across_restarts_and_success_resets_delay(self):
         self.settings.update({"retry_delay_seconds": 60, "failure_cooldown_seconds": 1800})
@@ -349,7 +349,8 @@ class RetryTests(unittest.TestCase):
         with self.assertLogs(monitor.LOG, level="INFO") as logs:
             self.assertEqual(self.run_cycle(), 2)
         self.assertIn(
-            "7/8 items attempted; 6 succeeded; 1 failed after all attempts; "
+            f"{len(self.watches) - 1}/{len(self.watches)} items attempted; "
+            f"{len(self.watches) - 2} succeeded; 1 failed after all attempts; "
             "1 skipped for cooldown; 0 unfinished checks", "\n".join(logs.output),
         )
         self.assertIn("1 failed after all attempts; 1 skipped for cooldown", self.notifier.messages[0])
@@ -570,7 +571,7 @@ class TransportTests(unittest.TestCase):
         self.assertEqual(settings["retry_delay_seconds"], 60)
         self.assertEqual(settings["failure_cooldown_seconds"], 1800)
         self.assertEqual(settings["max_failure_cooldown_seconds"], 3600)
-        self.assertEqual(len(watches), 8)
+        self.assertEqual(watches, monitor.load_config(monitor.BASE / "config.json")[1])
 
     def test_existing_long_cooldown_is_preserved_and_inconsistent_cap_is_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
