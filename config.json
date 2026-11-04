@@ -18,32 +18,16 @@
   ],
   "items": [
     {
-      "name": "Slim leather belt — black",
-      "article": "1343845001",
-      "sizes": ["*"],
-      "countries": ["ro_ro", "de_de"]
-    },
-    {
       "name": "Layered-look shorts with lace — black",
       "article": "1343794001",
-      "sizes": ["34", "36", "38"]
-    },
-    {
-      "name": "Hourglass wool-blend coat — black",
-      "article": "1349627001",
-      "sizes": ["XS"]
-    },
-    {
-      "name": "Tie-detail wool trousers — black",
-      "article": "1343787001",
-      "sizes": ["34"],
+      "sizes": ["34", "36", "38"],
       "countries": ["ro_ro", "de_de", "sr_rs"]
     },
     {
       "name": "Embellished lace skirt — black",
       "article": "1360933001",
-      "sizes": ["*"],
-      "countries": ["de_de"]
+      "sizes": ["M"],
+      "countries": ["ro_ro", "de_de", "sr_rs"]
     }
   ]
 }
