@@ -149,17 +149,17 @@
         "name": "Mantel aus Wollgemisch mit Sanduhr-Silhouette",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793827880.8642662
+        "fetched_at": 1793828213.0012612
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793827873.221184,
+      "last_success": 1793828198.5671217,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1793645277.889621
     },
     "sr_rs:1343794001": {
