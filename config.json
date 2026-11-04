@@ -38,6 +38,12 @@
       "article": "1343787001",
       "sizes": ["34"],
       "countries": ["ro_ro", "de_de", "sr_rs"]
+    },
+    {
+      "name": "Embellished lace skirt — black",
+      "article": "1360933001",
+      "sizes": ["*"],
+      "countries": ["de_de"]
     }
   ]
 }
