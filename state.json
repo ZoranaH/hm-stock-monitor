@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793901114.0124469
+        "fetched_at": 1793901344.8372982
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793901110.5668137,
+      "last_success": 1793901337.9397056,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 2,
+      "last_attempt_count": 1,
       "error_alert_at": 1793620657.3510153
     },
     "ro_ro:1349627001": {
@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793901122.2582688
+        "fetched_at": 1793901351.3037996
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793901118.8026168,
+      "last_success": 1793901347.9197743,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 2,
+      "last_attempt_count": 1,
       "error_alert_at": 1793645275.9355783
     },
     "de_de:1349627001": {
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793901064.7268274
+        "fetched_at": 1793901357.6089644
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793901061.410502,
+      "last_success": 1793901354.617503,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -325,12 +325,12 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1793901061.4049969
+        "fetched_at": 1793901354.6120992
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793901055.217933,
+      "last_success": 1793901351.3273504,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -350,17 +350,17 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1793901118.7981596
+        "fetched_at": 1793901347.9148426
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793901114.9355228,
+      "last_success": 1793901344.8436267,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 2
+      "last_attempt_count": 1
     },
     "sr_rs:1360933001": {
       "metadata": {
@@ -375,12 +375,12 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1793901067.9251938
+        "fetched_at": 1793901360.0807743
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1793901064.7310877,
+      "last_success": 1793901357.6135268,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
