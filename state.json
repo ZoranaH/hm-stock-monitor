@@ -49,8 +49,8 @@
       "initialized": true,
       "last_success": 1793938249.981673,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1793940494.811855,
+      "failures": 2,
+      "retry_at": 1793944396.1676338,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1793620657.3510153
