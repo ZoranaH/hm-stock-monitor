@@ -325,17 +325,17 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794065461.7697053
+        "fetched_at": 1794067912.5394866
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794065456.36758,
+      "last_success": 1794067907.8647935,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1794067657.6239378,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 2,
       "error_alert_at": 1793938384.9187546
     },
     "ro_ro:1360933001": {
