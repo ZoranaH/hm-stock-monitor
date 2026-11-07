@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794069650.4864984
+        "fetched_at": 1794069959.785855
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794069645.2717557,
+      "last_success": 1794069952.3646984,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794069656.3264623
+        "fetched_at": 1794069967.1748526
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794069653.4027903,
+      "last_success": 1794069963.3461149,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794069658.9639153
+        "fetched_at": 1794069969.915151
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794069656.3320487,
+      "last_success": 1794069967.185765,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -351,12 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794069653.3985524
+        "fetched_at": 1794069963.3408804
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794069650.4913578,
+      "last_success": 1794069959.7914536,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -377,12 +377,12 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794069661.4552026
+        "fetched_at": 1794069972.760946
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794069658.9685106,
+      "last_success": 1794069969.920127,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
