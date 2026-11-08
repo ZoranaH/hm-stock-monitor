@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794096710.8019435
+        "fetched_at": 1794118551.4100378
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794096707.7621596,
+      "last_success": 1794118545.3458617,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1794118366.2050216,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794103062.3219001
     },
     "ro_ro:1349627001": {
@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794096657.0197034
+        "fetched_at": 1794118557.9968722
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794096653.4782248,
+      "last_success": 1794118554.721616,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1794118370.1231236,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794088375.0804038
     },
     "de_de:1349627001": {
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794096662.0122793
+        "fetched_at": 1794118565.657494
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794096659.6991408,
+      "last_success": 1794118561.9967656,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1794118373.9327176,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794088378.718306
     },
     "sr_rs:1349627001": {
@@ -325,17 +325,17 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794096659.6947558
+        "fetched_at": 1794118561.9909146
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794096657.0280428,
+      "last_success": 1794118558.0037448,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1794118372.0119324,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794088376.7582788
     },
     "ro_ro:1360933001": {
@@ -351,17 +351,17 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794096653.4741776
+        "fetched_at": 1794118554.7166579
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794096647.763319,
+      "last_success": 1794118551.45086,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1794118368.1112807,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794088372.8946402
     },
     "sr_rs:1360933001": {
@@ -377,17 +377,17 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794096664.6467004
+        "fetched_at": 1794118568.8634279
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794096662.01631,
+      "last_success": 1794118565.6626358,
       "last_available": [],
-      "failures": 6,
-      "retry_at": 1794118375.908633,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794088380.6064522
     }
   },
