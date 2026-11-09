@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794182811.9795365
+        "fetched_at": 1794185147.4988048
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794182807.4719458,
+      "last_success": 1794185141.843882,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1794184973.2685432,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794103062.3219001
     },
     "ro_ro:1349627001": {
