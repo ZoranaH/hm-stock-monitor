@@ -130,8 +130,8 @@
       "initialized": true,
       "last_success": 1794271859.3496299,
       "last_available": [],
-      "failures": 9,
-      "retry_at": 1794305259.1947608,
+      "failures": 10,
+      "retry_at": 1794309168.9116075,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794278264.0811262
@@ -187,8 +187,8 @@
       "initialized": true,
       "last_success": 1794271866.0921662,
       "last_available": [],
-      "failures": 9,
-      "retry_at": 1794305263.0592148,
+      "failures": 10,
+      "retry_at": 1794309172.9617586,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794278267.9977827
@@ -332,8 +332,8 @@
       "initialized": true,
       "last_success": 1794271863.0689764,
       "last_available": [],
-      "failures": 9,
-      "retry_at": 1794305261.239636,
+      "failures": 10,
+      "retry_at": 1794309170.954298,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794278266.1636987
@@ -351,17 +351,17 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794271859.3451185
+        "fetched_at": 1794305447.7857182
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794271855.8171606,
+      "last_success": 1794305442.8891957,
       "last_available": [],
-      "failures": 9,
-      "retry_at": 1794305257.3510334,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794278262.1415462
     },
     "sr_rs:1360933001": {
@@ -384,8 +384,8 @@
       "initialized": true,
       "last_success": 1794271869.159373,
       "last_available": [],
-      "failures": 9,
-      "retry_at": 1794305265.0739613,
+      "failures": 10,
+      "retry_at": 1794309174.7702727,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794278269.9281387
