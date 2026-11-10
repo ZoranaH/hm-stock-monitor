@@ -351,12 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794310323.0291348
+        "fetched_at": 1794310607.8865547
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794310318.4654713,
+      "last_success": 1794310603.7694602,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
