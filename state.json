@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794325254.9619548
+        "fetched_at": 1794325556.4467285
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794325249.2166953,
+      "last_success": 1794325549.8535683,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
