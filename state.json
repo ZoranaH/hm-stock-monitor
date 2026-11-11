@@ -351,17 +351,17 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794394937.9334793
+        "fetched_at": 1794401158.5681353
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794394933.4194918,
+      "last_success": 1794401151.3835022,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794400966.8361058,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794367068.9870405
     },
     "sr_rs:1360933001": {
