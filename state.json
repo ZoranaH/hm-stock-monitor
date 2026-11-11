@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794349875.398128
+        "fetched_at": 1794356167.9365537
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794349871.7075582,
+      "last_success": 1794356163.3300798,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794355969.0277581,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794278264.0811262
     },
     "de_de:1349627001": {
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794349882.0819557
+        "fetched_at": 1794356175.4924533
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794349878.6659353,
+      "last_success": 1794356171.8964276,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794355972.7635088,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794278267.9977827
     },
     "sr_rs:1349627001": {
@@ -325,17 +325,17 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794349878.6609564
+        "fetched_at": 1794356171.8902278
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794349875.4037979,
+      "last_success": 1794356167.9559193,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794355970.9653141,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794278266.1636987
     },
     "ro_ro:1360933001": {
@@ -351,21 +351,21 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794349871.3683505
+        "fetched_at": 1794356163.2943766
       },
       "announced": [
         "M"
       ],
-      "misses": {},
+      "misses": {
+        "M": 1
+      },
       "initialized": true,
-      "last_success": 1794349865.3310273,
-      "last_available": [
-        "M"
-      ],
-      "failures": 2,
-      "retry_at": 1794355967.246461,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "last_success": 1794356156.770204,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794278262.1415462
     },
     "sr_rs:1360933001": {
@@ -381,21 +381,21 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794349887.610383
+        "fetched_at": 1794356179.6256404
       },
       "announced": [
         "M"
       ],
-      "misses": {},
+      "misses": {
+        "M": 1
+      },
       "initialized": true,
-      "last_success": 1794349882.0867436,
-      "last_available": [
-        "M"
-      ],
-      "failures": 2,
-      "retry_at": 1794355974.7418463,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "last_success": 1794356175.4974465,
+      "last_available": [],
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794278269.9281387
     }
   },
