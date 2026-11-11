@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794381653.517204
+        "fetched_at": 1794387941.9811847
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794381645.1034667,
+      "last_success": 1794387936.9887784,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794387786.3930814,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794305866.5443792
     },
     "ro_ro:1349627001": {
@@ -130,11 +130,11 @@
       "initialized": true,
       "last_success": 1794381657.1607044,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794387790.4101362,
+      "failures": 3,
+      "retry_at": 1794391664.7429662,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
-      "error_alert_at": 1794278264.0811262
+      "error_alert_at": 1794388065.1339924
     },
     "de_de:1349627001": {
       "metadata": {
@@ -187,8 +187,8 @@
       "initialized": true,
       "last_success": 1794381664.2036464,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794387794.2994196,
+      "failures": 3,
+      "retry_at": 1794391668.6221442,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794367072.7494926
@@ -332,8 +332,8 @@
       "initialized": true,
       "last_success": 1794381660.6040814,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794387792.4333951,
+      "failures": 3,
+      "retry_at": 1794391666.7512183,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794367071.0662808
@@ -358,8 +358,8 @@
       "initialized": true,
       "last_success": 1794381653.522834,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794387788.3928187,
+      "failures": 3,
+      "retry_at": 1794391662.5514429,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794367068.9870405
@@ -384,8 +384,8 @@
       "initialized": true,
       "last_success": 1794381667.7804697,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794387796.2581768,
+      "failures": 3,
+      "retry_at": 1794391670.6451051,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794367074.712053
