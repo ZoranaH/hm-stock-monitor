@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794417655.3635776
+        "fetched_at": 1794417949.6045606
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794417648.7649062,
+      "last_success": 1794417943.462581,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -351,12 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794417659.2831738
+        "fetched_at": 1794417952.7211301
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794417655.3990889,
+      "last_success": 1794417949.611594,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
