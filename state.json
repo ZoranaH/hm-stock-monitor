@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794356167.9365537
+        "fetched_at": 1794356475.3080764
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794356163.3300798,
+      "last_success": 1794356471.8131733,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794356175.4924533
+        "fetched_at": 1794356480.8389196
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794356171.8964276,
+      "last_success": 1794356478.1053016,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -325,12 +325,12 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794356171.8902278
+        "fetched_at": 1794356478.091794
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794356167.9559193,
+      "last_success": 1794356475.316634,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -351,16 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794356163.2943766
+        "fetched_at": 1794356471.8085046
       },
-      "announced": [
-        "M"
-      ],
-      "misses": {
-        "M": 1
-      },
+      "announced": [],
+      "misses": {},
       "initialized": true,
-      "last_success": 1794356156.770204,
+      "last_success": 1794356455.3277535,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -381,16 +377,12 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794356179.6256404
+        "fetched_at": 1794356483.3563251
       },
-      "announced": [
-        "M"
-      ],
-      "misses": {
-        "M": 1
-      },
+      "announced": [],
+      "misses": {},
       "initialized": true,
-      "last_success": 1794356175.4974465,
+      "last_success": 1794356480.8430598,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
