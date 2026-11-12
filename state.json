@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794438073.262237
+        "fetched_at": 1794444355.9397564
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794438066.4435983,
+      "last_success": 1794444349.6457267,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794444178.9226046,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794396778.3404698
     },
     "ro_ro:1349627001": {
@@ -130,8 +130,8 @@
       "initialized": true,
       "last_success": 1794438076.5754468,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794444182.764255,
+      "failures": 3,
+      "retry_at": 1794448080.5969608,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794388065.1339924
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794438084.0069199
+        "fetched_at": 1794444366.3605847
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794438081.7003536,
+      "last_success": 1794444361.5490196,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794444186.626372,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794367072.7494926
     },
     "sr_rs:1349627001": {
@@ -332,8 +332,8 @@
       "initialized": true,
       "last_success": 1794438079.2649086,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794444184.718885,
+      "failures": 3,
+      "retry_at": 1794448082.5367613,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794367071.0662808
@@ -351,17 +351,17 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794438076.5715177
+        "fetched_at": 1794444359.1919813
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794438073.2665458,
+      "last_success": 1794444355.9444294,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794444180.6845284,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794367068.9870405
     },
     "sr_rs:1360933001": {
@@ -377,17 +377,17 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794438086.7238114
+        "fetched_at": 1794444369.464252
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794438084.0108879,
+      "last_success": 1794444366.3650048,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794444188.5935526,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794367074.712053
     }
   },
