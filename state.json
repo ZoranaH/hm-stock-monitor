@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794481275.781107
+        "fetched_at": 1794481559.7077265
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794481270.8030853,
+      "last_success": 1794481550.3564236,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794479206.9519503
+        "fetched_at": 1794481566.447353
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794479203.3859422,
+      "last_success": 1794481562.5390558,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1794481382.721543,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794463972.051915
     },
     "sr_rs:1349627001": {
@@ -351,12 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794481279.674477
+        "fetched_at": 1794481562.5324647
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794481275.8259714,
+      "last_success": 1794481559.714877,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
