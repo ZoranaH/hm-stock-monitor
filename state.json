@@ -333,17 +333,17 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794511872.9638045
+        "fetched_at": 1794514255.1266341
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794511869.9954638,
+      "last_success": 1794514246.120724,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1794514065.2395544,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794465463.628778
     },
     "ro_ro:1360933001": {
@@ -389,17 +389,17 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794511876.295835
+        "fetched_at": 1794514258.1125193
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794511872.9680514,
+      "last_success": 1794514255.1665072,
       "last_available": [],
-      "failures": 1,
-      "retry_at": 1794514067.2360873,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794455575.0145571
     }
   },
