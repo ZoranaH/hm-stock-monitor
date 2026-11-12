@@ -123,12 +123,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794457255.565502
+        "fetched_at": 1794457544.2438262
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794457248.7321885,
+      "last_success": 1794457537.672745,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794457258.471218
+        "fetched_at": 1794457546.713696
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794457255.5738735,
+      "last_success": 1794457544.2488818,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
