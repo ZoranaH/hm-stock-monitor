@@ -325,17 +325,17 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794452144.9405363
+        "fetched_at": 1794452533.3126495
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794452138.8649642,
+      "last_success": 1794452528.8264241,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1794367071.0662808
     },
     "ro_ro:1360933001": {
