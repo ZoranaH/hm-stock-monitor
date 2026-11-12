@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794450405.173046
+        "fetched_at": 1794456648.2090235
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794450401.370577,
+      "last_success": 1794456643.0853868,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794456477.3573523,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794367072.7494926
     },
     "sr_rs:1349627001": {
