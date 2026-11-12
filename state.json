@@ -127,12 +127,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794511869.982761
+        "fetched_at": 1794512144.2999923
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794511862.8781872,
+      "last_success": 1794512137.1955988,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -340,10 +340,10 @@
       "initialized": true,
       "last_success": 1794511869.9954638,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
-      "last_attempt_count": 1,
+      "failures": 1,
+      "retry_at": 1794514065.2395544,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "last_attempt_count": 3,
       "error_alert_at": 1794465463.628778
     },
     "ro_ro:1360933001": {
@@ -396,10 +396,10 @@
       "initialized": true,
       "last_success": 1794511872.9680514,
       "last_available": [],
-      "failures": 0,
-      "retry_at": 0,
-      "last_error": null,
-      "last_attempt_count": 1,
+      "failures": 1,
+      "retry_at": 1794514067.2360873,
+      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
+      "last_attempt_count": 3,
       "error_alert_at": 1794455575.0145571
     }
   },
