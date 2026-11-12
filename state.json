@@ -127,12 +127,12 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794510966.5059373
+        "fetched_at": 1794511249.5625553
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794510957.5507503,
+      "last_success": 1794511244.352514,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -333,12 +333,12 @@
         "name": "Verzierter Spitzenrock",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794510969.3194988
+        "fetched_at": 1794511252.18156
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794510966.5151892,
+      "last_success": 1794511249.6259854,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -389,12 +389,12 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794510972.4110684
+        "fetched_at": 1794511255.7072127
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794510969.3249109,
+      "last_success": 1794511252.419818,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
