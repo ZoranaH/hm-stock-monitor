@@ -377,12 +377,12 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794472318.6888027
+        "fetched_at": 1794472605.773116
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794472314.821241,
+      "last_success": 1794472601.7516682,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
