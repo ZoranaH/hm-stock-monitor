@@ -180,12 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794450108.3227794
+        "fetched_at": 1794450405.173046
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794450104.248679,
+      "last_success": 1794450401.370577,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
