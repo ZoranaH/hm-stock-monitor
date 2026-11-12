@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794457544.2438262
+        "fetched_at": 1794467758.6535757
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794457537.672745,
+      "last_success": 1794467747.3055563,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1794467568.7789268,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794388065.1339924
     },
     "de_de:1349627001": {
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794457546.713696
+        "fetched_at": 1794467761.6528063
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794457544.2488818,
+      "last_success": 1794467758.6629262,
       "last_available": [],
-      "failures": 3,
-      "retry_at": 1794467571.7272775,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794463972.051915
     },
     "sr_rs:1349627001": {
