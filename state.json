@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794468346.173816
+        "fetched_at": 1794468721.259496
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794468340.8724751,
+      "last_success": 1794468717.5069544,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
       "last_error": null,
-      "last_attempt_count": 1,
+      "last_attempt_count": 2,
       "error_alert_at": 1794388065.1339924
     },
     "de_de:1349627001": {
