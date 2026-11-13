@@ -332,8 +332,8 @@
       "initialized": true,
       "last_success": 1794529017.8522277,
       "last_available": [],
-      "failures": 4,
-      "retry_at": 1794542872.9907613,
+      "failures": 5,
+      "retry_at": 1794546774.4995623,
       "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
       "last_attempt_count": 3,
       "error_alert_at": 1794465463.628778
@@ -377,17 +377,17 @@
         "name": "Čipkana suknja s ukrasnim detaljima",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794536802.6982913
+        "fetched_at": 1794543058.648794
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794536798.371553,
+      "last_success": 1794543053.3936553,
       "last_available": [],
-      "failures": 2,
-      "retry_at": 1794542874.8806038,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794455575.0145571
     }
   },
