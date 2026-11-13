@@ -42,17 +42,17 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794555652.5893672
+        "fetched_at": 1794573660.5073912
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794555645.9686887,
+      "last_success": 1794573653.2046146,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1794573462.185903,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794487972.3929605
     },
     "ro_ro:1349627001": {
@@ -351,17 +351,17 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794555655.898887
+        "fetched_at": 1794573664.5567641
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794555652.595597,
+      "last_success": 1794573660.5123036,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1794573464.1156685,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794547658.613063
     },
     "sr_rs:1360933001": {
