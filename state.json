@@ -42,16 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794540945.1965005
+        "fetched_at": 1794541253.6584952
       },
-      "announced": [
-        "38"
-      ],
-      "misses": {
-        "38": 1
-      },
+      "announced": [],
+      "misses": {},
       "initialized": true,
-      "last_success": 1794540938.7847788,
+      "last_success": 1794541248.49141,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -184,16 +180,12 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794540953.0317247
+        "fetched_at": 1794541258.6962755
       },
-      "announced": [
-        "38"
-      ],
-      "misses": {
-        "38": 1
-      },
+      "announced": [],
+      "misses": {},
       "initialized": true,
-      "last_success": 1794540948.3506734,
+      "last_success": 1794541256.1716886,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -359,16 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794540948.3451838
+        "fetched_at": 1794541256.1677506
       },
-      "announced": [
-        "M"
-      ],
-      "misses": {
-        "M": 1
-      },
+      "announced": [],
+      "misses": {},
       "initialized": true,
-      "last_success": 1794540945.2333212,
+      "last_success": 1794541253.8007429,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
