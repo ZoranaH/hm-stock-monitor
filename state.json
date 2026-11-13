@@ -42,12 +42,12 @@
         "name": "Pantaloni scurți cu efect suprapus și cu dantelă",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794573660.5073912
+        "fetched_at": 1794573962.3079095
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794573653.2046146,
+      "last_success": 1794573954.545114,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
@@ -123,17 +123,17 @@
         "name": "Shorts mit Spitzenbesatz im Lagenlook",
         "colour": "Schwarz",
         "coming_soon": false,
-        "fetched_at": 1794555659.2382925
+        "fetched_at": 1794573968.4490469
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794555655.9039211,
+      "last_success": 1794573964.9638903,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1794573771.0918841,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794570171.5269206
     },
     "de_de:1349627001": {
@@ -180,17 +180,17 @@
         "name": "Slojeviti šorts s čipkanim bordurama",
         "colour": "Crna",
         "coming_soon": false,
-        "fetched_at": 1794555662.8509166
+        "fetched_at": 1794573971.7853909
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794555659.252085,
+      "last_success": 1794573968.4530723,
       "last_available": [],
-      "failures": 5,
-      "retry_at": 1794573774.9224105,
-      "last_error": "Browser product page: HTTP 403. H&M refused this browser request.",
-      "last_attempt_count": 3,
+      "failures": 0,
+      "retry_at": 0,
+      "last_error": null,
+      "last_attempt_count": 1,
       "error_alert_at": 1794551584.183404
     },
     "sr_rs:1349627001": {
@@ -351,12 +351,12 @@
         "name": "Fustă din dantelă cu decorațiuni",
         "colour": "Negru",
         "coming_soon": false,
-        "fetched_at": 1794573664.5567641
+        "fetched_at": 1794573964.9594383
       },
       "announced": [],
       "misses": {},
       "initialized": true,
-      "last_success": 1794573660.5123036,
+      "last_success": 1794573962.3135037,
       "last_available": [],
       "failures": 0,
       "retry_at": 0,
